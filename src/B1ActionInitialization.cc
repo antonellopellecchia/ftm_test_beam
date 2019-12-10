@@ -35,9 +35,12 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B1ActionInitialization::B1ActionInitialization()
- : G4VUserActionInitialization()
-{}
+B1ActionInitialization::B1ActionInitialization(G4bool headless)
+: G4VUserActionInitialization(),
+  fHeadless(true)
+{
+  fHeadless = headless;
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -48,7 +51,7 @@ B1ActionInitialization::~B1ActionInitialization()
 
 void B1ActionInitialization::BuildForMaster() const
 {
-  B1RunAction* runAction = new B1RunAction;
+  B1RunAction* runAction = new B1RunAction(fHeadless);
   SetUserAction(runAction);
 }
 
@@ -58,7 +61,7 @@ void B1ActionInitialization::Build() const
 {
   SetUserAction(new B1PrimaryGeneratorAction);
 
-  B1RunAction* runAction = new B1RunAction;
+  B1RunAction* runAction = new B1RunAction(fHeadless);
   SetUserAction(runAction);
   
   B1EventAction* eventAction = new B1EventAction(runAction);

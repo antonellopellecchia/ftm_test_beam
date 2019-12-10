@@ -4,7 +4,7 @@
 CMakeFiles/exampleB1.dir/exampleB1.cc.o
  ../include/B1ActionInitialization.hh
  ../include/B1DetectorConstruction.hh
- /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/exampleB1.cc
+ /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/exampleB1.cc
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -344,7 +344,7 @@ CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.o
  ../include/B1PrimaryGeneratorAction.hh
  ../include/B1RunAction.hh
  ../include/B1SteppingAction.hh
- /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1ActionInitialization.cc
+ /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1ActionInitialization.cc
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Units/PhysicalConstants.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Units/SystemOfUnits.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Utility/defs.h
@@ -387,7 +387,7 @@ CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.o
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/tls.hh
 CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o
  ../include/B1DetectorConstruction.hh
- /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1DetectorConstruction.cc
+ /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1DetectorConstruction.cc
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -616,6 +616,8 @@ CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4Transform3D.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4Trd.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4Trd.icc
+ /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4Tubs.hh
+ /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4Tubs.icc
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4Types.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4UAdapter.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4UBox.hh
@@ -628,6 +630,7 @@ CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4UOrb.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4USphere.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4UTrd.hh
+ /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4UTubs.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4UserStackingAction.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4UserSteppingAction.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/G4UserTrackingAction.hh
@@ -674,7 +677,7 @@ CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o
 CMakeFiles/exampleB1.dir/src/B1EventAction.cc.o
  ../include/B1EventAction.hh
  ../include/B1RunAction.hh
- /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1EventAction.cc
+ /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1EventAction.cc
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -927,7 +930,7 @@ CMakeFiles/exampleB1.dir/src/B1EventAction.cc.o
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/trkdefs.hh
 CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.o
  ../include/B1PrimaryGeneratorAction.hh
- /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1PrimaryGeneratorAction.cc
+ /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1PrimaryGeneratorAction.cc
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Plane3D.h
@@ -1200,7 +1203,7 @@ CMakeFiles/exampleB1.dir/src/B1RunAction.cc.o
  ../include/B1DetectorConstruction.hh
  ../include/B1PrimaryGeneratorAction.hh
  ../include/B1RunAction.hh
- /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1RunAction.cc
+ /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1RunAction.cc
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1463,11 +1466,116 @@ CMakeFiles/exampleB1.dir/src/B1RunAction.cc.o
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/tls.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/trajectoryControl.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/trkdefs.hh
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Buttons.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Bytes.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Byteswap.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Compression.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/DllImport.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ESTLType.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Fit/FitExecutionPolicy.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Foption.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/GuiTypes.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Math/ParamFunctor.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Math/Types.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/RConfigure.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/RConcurrentHashColl.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/RConfig.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/RSpan.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/RStringView.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/RWrap_libcpp_string_view.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/TRWSpinLock.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/TSpinMutex.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/TypeTraits.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/libcpp_string_view.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/span.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/RVersion.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Rtypes.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/RtypesCore.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TApplication.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TApplicationImp.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TArray.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TArrayC.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TArrayD.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TArrayF.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TArrayI.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TArrayS.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttAxis.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttBBox2D.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttCanvas.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttFill.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttLine.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttMarker.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttPad.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttText.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TAxis.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TBits.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TBuffer.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TCanvas.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TCanvasImp.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TClass.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TCollection.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TColor.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TDataType.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TDatime.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TDictionary.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TDirectory.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TDirectoryFile.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TError.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TF1.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TF1AbsComposition.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TFile.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TFitResultPtr.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TFormula.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TGenericClassInfo.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TH1.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TH1F.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TH2.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TH2F.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/THashTable.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TInterpreter.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TInterpreterValue.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TIsAProxy.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TIterator.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TList.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TMap.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TMath.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TMathBase.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TMatrixDBasefwd.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TMatrixFBasefwd.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TMethodCall.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TNamed.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TObjArray.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TObjString.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TObject.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TPad.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TPoint.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TQClass.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TQObject.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TROOT.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TSchemaHelper.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TSeqCollection.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TStorage.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TString.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TStyle.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TUUID.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TUrl.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVectorDfwd.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVectorFfwd.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVersionCheck.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVirtualIsAProxy.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVirtualMutex.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVirtualPad.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVirtualQConnection.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVirtualRWMutex.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVirtualX.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ThreadLocalStorage.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/snprintf.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/strlcpy.h
 CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.o
  ../include/B1DetectorConstruction.hh
  ../include/B1EventAction.hh
  ../include/B1SteppingAction.hh
- /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1SteppingAction.cc
+ /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1SteppingAction.cc
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Normal3D.h
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/CLHEP/Geometry/Point3D.h
@@ -1713,3 +1821,18 @@ CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.o
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/tls.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/trajectoryControl.hh
  /home/anto/Downloads/Programmi/geant4.10.05.p01-install/include/Geant4/trkdefs.hh
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/DllImport.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/RConfigure.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/ROOT/RConfig.hxx
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/RVersion.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/Rtypes.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/RtypesCore.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TError.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TGenericClassInfo.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TIsAProxy.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TMath.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TMathBase.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TSchemaHelper.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/TVirtualIsAProxy.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/snprintf.h
+ /home/anto/Downloads/Programmi/root-6.18.04/install/include/strlcpy.h

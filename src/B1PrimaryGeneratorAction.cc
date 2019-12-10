@@ -42,21 +42,24 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 B1PrimaryGeneratorAction::B1PrimaryGeneratorAction()
-: G4VUserPrimaryGeneratorAction(),
-  fParticleGun(0), 
-  fEnvelopeBox(0)
+  : G4VUserPrimaryGeneratorAction(),
+    fParticleGun(0), 
+    fEnvelopeBox(0),
+    fScintillatorBox1(0),
+    fElectron(nullptr)
 {
   G4int n_particle = 1;
   fParticleGun  = new G4ParticleGun(n_particle);
 
   // default particle kinematic
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+  fElectron = particleTable->FindParticle("e-");
   G4String particleName;
-  G4ParticleDefinition* particle
-    = particleTable->FindParticle(particleName="gamma");
-  fParticleGun->SetParticleDefinition(particle);
+  G4ParticleDefinition* particle = particleTable->FindParticle(particleName="gamma");
+
+  fParticleGun->SetParticleDefinition(fElectron);
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-  fParticleGun->SetParticleEnergy(6.*MeV);
+  fParticleGun->SetParticleEnergy(500.*MeV);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -81,11 +84,10 @@ void B1PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   G4double envSizeZ = 0;
 
   if (!fEnvelopeBox)
-  {
-    G4LogicalVolume* envLV
-      = G4LogicalVolumeStore::GetInstance()->GetVolume("Envelope");
-    if ( envLV ) fEnvelopeBox = dynamic_cast<G4Box*>(envLV->GetSolid());
-  }
+    {
+      G4LogicalVolume* envLV = G4LogicalVolumeStore::GetInstance()->GetVolume("Envelope");
+      if ( envLV ) fEnvelopeBox = dynamic_cast<G4Box*>(envLV->GetSolid());
+    }
 
   if ( fEnvelopeBox ) {
     envSizeXY = fEnvelopeBox->GetXHalfLength()*2.;
@@ -97,16 +99,52 @@ void B1PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
     msg << "Perhaps you have changed geometry.\n";
     msg << "The gun will be place at the center.";
     G4Exception("B1PrimaryGeneratorAction::GeneratePrimaries()",
-     "MyCode0002",JustWarning,msg);
+		"MyCode0002",JustWarning,msg);
   }
 
   G4double size = 0.8; 
   G4double x0 = size * envSizeXY * (G4UniformRand()-0.5);
   G4double y0 = size * envSizeXY * (G4UniformRand()-0.5);
   G4double z0 = -0.5 * envSizeZ;
-  
-  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
 
+  /*
+    Define scintillator geometry to position
+    the beam right in front the first scintillator
+  */ 
+
+  G4double scintSizeX = 0;
+  G4double scintSizeY = 0;
+  G4double scintSizeZ = 0;
+  if (!fScintillatorBox1) {
+    G4LogicalVolume *scintLV = G4LogicalVolumeStore::GetInstance()->GetVolume("ScintiLogical1");
+    if (scintLV) fScintillatorBox1 = dynamic_cast<G4Box*>(scintLV->GetSolid());
+  }
+
+  if (fScintillatorBox1) {
+    scintSizeX = fScintillatorBox1->GetXHalfLength()*2.;
+    scintSizeY = fScintillatorBox1->GetYHalfLength()*2.;
+    scintSizeZ = fScintillatorBox1->GetZHalfLength()*2.;
+  } else {
+    G4ExceptionDescription msg;
+    msg << "Scintillator logic box not found.\n";
+    msg << "The gun will be place at the center.";
+    G4Exception("B1PrimaryGeneratorAction::GeneratePrimaries()",
+		"MyCode0002",JustWarning,msg);
+  }
+  
+  // uniform beam position
+  size = 0.5;
+  x0 = size * scintSizeX * (G4UniformRand()-0.5);
+  y0 = size * scintSizeY * (G4UniformRand()-0.5);
+  z0 = -0.5 * envSizeZ;
+
+  // gaussian positioning, center in (0,0), sigma 1 mm
+  G4double beamSigma = 1.*mm;
+  G4double r0 = G4RandGauss::shoot(0, beamSigma);
+  G4double theta0 = G4UniformRand()*CLHEP::pi;
+  x0 = r0*cos(theta0);
+  y0 = r0*sin(theta0);
+  fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }
 

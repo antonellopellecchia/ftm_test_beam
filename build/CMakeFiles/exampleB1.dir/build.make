@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anto/Documents/Dottorato/simulations/geant4/examples/B1
+CMAKE_SOURCE_DIR = /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build
+CMAKE_BINARY_DIR = /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/exampleB1.dir/depend.make
@@ -59,94 +59,94 @@ include CMakeFiles/exampleB1.dir/flags.make
 
 CMakeFiles/exampleB1.dir/exampleB1.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/exampleB1.cc.o: ../exampleB1.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/exampleB1.dir/exampleB1.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/exampleB1.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/exampleB1.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/exampleB1.dir/exampleB1.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/exampleB1.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/exampleB1.cc
 
 CMakeFiles/exampleB1.dir/exampleB1.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/exampleB1.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/exampleB1.cc > CMakeFiles/exampleB1.dir/exampleB1.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/exampleB1.cc > CMakeFiles/exampleB1.dir/exampleB1.cc.i
 
 CMakeFiles/exampleB1.dir/exampleB1.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/exampleB1.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/exampleB1.cc -o CMakeFiles/exampleB1.dir/exampleB1.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/exampleB1.cc -o CMakeFiles/exampleB1.dir/exampleB1.cc.s
 
 CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.o: ../src/B1ActionInitialization.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1ActionInitialization.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1ActionInitialization.cc
 
 CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1ActionInitialization.cc > CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1ActionInitialization.cc > CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.i
 
 CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1ActionInitialization.cc -o CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1ActionInitialization.cc -o CMakeFiles/exampleB1.dir/src/B1ActionInitialization.cc.s
 
 CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o: ../src/B1DetectorConstruction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1DetectorConstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1DetectorConstruction.cc
 
 CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1DetectorConstruction.cc > CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1DetectorConstruction.cc > CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.i
 
 CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1DetectorConstruction.cc -o CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1DetectorConstruction.cc -o CMakeFiles/exampleB1.dir/src/B1DetectorConstruction.cc.s
 
 CMakeFiles/exampleB1.dir/src/B1EventAction.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/B1EventAction.cc.o: ../src/B1EventAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/exampleB1.dir/src/B1EventAction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1EventAction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1EventAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/exampleB1.dir/src/B1EventAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1EventAction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1EventAction.cc
 
 CMakeFiles/exampleB1.dir/src/B1EventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/B1EventAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1EventAction.cc > CMakeFiles/exampleB1.dir/src/B1EventAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1EventAction.cc > CMakeFiles/exampleB1.dir/src/B1EventAction.cc.i
 
 CMakeFiles/exampleB1.dir/src/B1EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/B1EventAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1EventAction.cc -o CMakeFiles/exampleB1.dir/src/B1EventAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1EventAction.cc -o CMakeFiles/exampleB1.dir/src/B1EventAction.cc.s
 
 CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.o: ../src/B1PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1PrimaryGeneratorAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1PrimaryGeneratorAction.cc
 
 CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1PrimaryGeneratorAction.cc > CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1PrimaryGeneratorAction.cc > CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.i
 
 CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1PrimaryGeneratorAction.cc -o CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1PrimaryGeneratorAction.cc -o CMakeFiles/exampleB1.dir/src/B1PrimaryGeneratorAction.cc.s
 
 CMakeFiles/exampleB1.dir/src/B1RunAction.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/B1RunAction.cc.o: ../src/B1RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/exampleB1.dir/src/B1RunAction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1RunAction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1RunAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/exampleB1.dir/src/B1RunAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1RunAction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1RunAction.cc
 
 CMakeFiles/exampleB1.dir/src/B1RunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/B1RunAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1RunAction.cc > CMakeFiles/exampleB1.dir/src/B1RunAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1RunAction.cc > CMakeFiles/exampleB1.dir/src/B1RunAction.cc.i
 
 CMakeFiles/exampleB1.dir/src/B1RunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/B1RunAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1RunAction.cc -o CMakeFiles/exampleB1.dir/src/B1RunAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1RunAction.cc -o CMakeFiles/exampleB1.dir/src/B1RunAction.cc.s
 
 CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.o: CMakeFiles/exampleB1.dir/flags.make
 CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.o: ../src/B1SteppingAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1SteppingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.o -c /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1SteppingAction.cc
 
 CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1SteppingAction.cc > CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1SteppingAction.cc > CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.i
 
 CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/src/B1SteppingAction.cc -o CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/src/B1SteppingAction.cc -o CMakeFiles/exampleB1.dir/src/B1SteppingAction.cc.s
 
 # Object files for target exampleB1
 exampleB1_OBJECTS = \
@@ -182,6 +182,10 @@ exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4erro
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4readout.so
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4physicslists.so
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4parmodels.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libRint.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libPostscript.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libPhysics.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libROOTDataFrame.so
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4FR.so
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4vis_management.so
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4modeling.so
@@ -212,8 +216,23 @@ exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4grap
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4intercoms.so
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4global.so
 exampleB1: /home/anto/Downloads/Programmi/geant4.10.05.p01-install/lib/libG4clhep.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libROOTVecOps.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libTreePlayer.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libGraf3d.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libGpad.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libGraf.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libHist.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libMatrix.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libTree.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libMathCore.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libImt.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libMultiProc.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libNet.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libRIO.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libThread.so
+exampleB1: /home/anto/Downloads/Programmi/root-6.18.04/install/lib/libCore.so
 exampleB1: CMakeFiles/exampleB1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable exampleB1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable exampleB1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/exampleB1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -226,6 +245,6 @@ CMakeFiles/exampleB1.dir/clean:
 .PHONY : CMakeFiles/exampleB1.dir/clean
 
 CMakeFiles/exampleB1.dir/depend:
-	cd /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/anto/Documents/Dottorato/simulations/geant4/examples/B1 /home/anto/Documents/Dottorato/simulations/geant4/examples/B1 /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles/exampleB1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles/exampleB1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/exampleB1.dir/depend
 

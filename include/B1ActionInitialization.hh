@@ -36,12 +36,15 @@
 
 class B1ActionInitialization : public G4VUserActionInitialization
 {
-  public:
-    B1ActionInitialization();
-    virtual ~B1ActionInitialization();
+public:
+  B1ActionInitialization(bool headless);
+  virtual ~B1ActionInitialization();
 
-    virtual void BuildForMaster() const;
-    virtual void Build() const;
+  virtual void BuildForMaster() const;
+  virtual void Build() const;
+
+private:
+  bool fHeadless;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

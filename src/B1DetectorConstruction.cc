@@ -29,9 +29,12 @@
 
 #include "B1DetectorConstruction.hh"
 
+#include "G4Material.hh"
+#include "G4Element.hh"
 #include "G4RunManager.hh"
 #include "G4NistManager.hh"
 #include "G4Box.hh"
+#include "G4Tubs.hh"
 #include "G4Cons.hh"
 #include "G4Orb.hh"
 #include "G4Sphere.hh"
@@ -44,7 +47,12 @@
 
 B1DetectorConstruction::B1DetectorConstruction()
 : G4VUserDetectorConstruction(),
-  fScoringVolume(0)
+  fScoringVolume1(0),
+  fScoringVolume2(0),
+  fScintiLogical1(nullptr),
+  fScintiLogical2(nullptr),
+  fQuartzLogical1(nullptr),
+  fQuartzLogical2(nullptr)
 { }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -55,15 +63,27 @@ B1DetectorConstruction::~B1DetectorConstruction()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 G4VPhysicalVolume* B1DetectorConstruction::Construct()
-{  
+{
+  ConstructMaterials();
+  G4Material *air = G4Material::GetMaterial("G4_AIR");
+  G4Material *scintillator = G4Material::GetMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
+
+  // Quartz definition (SiO2)
+  G4Element *elO  = new G4Element("Oxygen", "O", 8., 16.00*g/mole);
+  G4Element *elSi = new G4Element("Silicon", "Si", 14., 28.09*g/mole);
+  G4double density = 2.200*g/cm3; // fused quartz
+  //density = 2.64*g/cm3;  // crystalline quartz (c.f. PDG)
+  G4Material *quartz = new G4Material("quartz", density, 2);
+  quartz->AddElement(elSi, 1);
+  quartz->AddElement(elO , 2);
+   
   // Get nist material manager
   G4NistManager* nist = G4NistManager::Instance();
-  
+
   // Envelope parameters
   //
-  G4double env_sizeXY = 20*cm, env_sizeZ = 30*cm;
-  G4Material* env_mat = nist->FindOrBuildMaterial("G4_WATER");
-   
+  G4double env_sizeXY = 10*cm, env_sizeZ = 50*cm;
+  
   // Option to switch on/off checking of volumes overlaps
   //
   G4bool checkOverlaps = true;
@@ -74,114 +94,103 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   G4double world_sizeXY = 1.2*env_sizeXY;
   G4double world_sizeZ  = 1.2*env_sizeZ;
   G4Material* world_mat = nist->FindOrBuildMaterial("G4_AIR");
-  
-  G4Box* solidWorld =    
-    new G4Box("World",                       //its name
-       0.5*world_sizeXY, 0.5*world_sizeXY, 0.5*world_sizeZ);     //its size
-      
-  G4LogicalVolume* logicWorld =                         
-    new G4LogicalVolume(solidWorld,          //its solid
-                        world_mat,           //its material
-                        "World");            //its name
-                                   
-  G4VPhysicalVolume* physWorld = 
-    new G4PVPlacement(0,                     //no rotation
-                      G4ThreeVector(),       //at (0,0,0)
-                      logicWorld,            //its logical volume
-                      "World",               //its name
-                      0,                     //its mother  volume
-                      false,                 //no boolean operation
-                      0,                     //copy number
-                      checkOverlaps);        //overlaps checking
-                     
+
+  G4Box* solidWorld = new G4Box("World", 0.5*world_sizeXY, 0.5*world_sizeXY, 0.5*world_sizeZ);
+  G4LogicalVolume* logicWorld = new G4LogicalVolume(solidWorld, world_mat, "World");
+  G4VPhysicalVolume* physWorld = new G4PVPlacement(0, G4ThreeVector(), logicWorld, "World", 0, false, 0, checkOverlaps);
+
   //     
   // Envelope
-  //  
-  G4Box* solidEnv =    
-    new G4Box("Envelope",                    //its name
-        0.5*env_sizeXY, 0.5*env_sizeXY, 0.5*env_sizeZ); //its size
-      
-  G4LogicalVolume* logicEnv =                         
-    new G4LogicalVolume(solidEnv,            //its solid
-                        env_mat,             //its material
-                        "Envelope");         //its name
-               
-  new G4PVPlacement(0,                       //no rotation
-                    G4ThreeVector(),         //at (0,0,0)
-                    logicEnv,                //its logical volume
-                    "Envelope",              //its name
-                    logicWorld,              //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
- 
-  //     
-  // Shape 1
-  //  
-  G4Material* shape1_mat = nist->FindOrBuildMaterial("G4_A-150_TISSUE");
-  G4ThreeVector pos1 = G4ThreeVector(0, 2*cm, -7*cm);
-        
-  // Conical section shape       
-  G4double shape1_rmina =  0.*cm, shape1_rmaxa = 2.*cm;
-  G4double shape1_rminb =  0.*cm, shape1_rmaxb = 4.*cm;
-  G4double shape1_hz = 3.*cm;
-  G4double shape1_phimin = 0.*deg, shape1_phimax = 360.*deg;
-  G4Cons* solidShape1 =    
-    new G4Cons("Shape1", 
-    shape1_rmina, shape1_rmaxa, shape1_rminb, shape1_rmaxb, shape1_hz,
-    shape1_phimin, shape1_phimax);
-                      
-  G4LogicalVolume* logicShape1 =                         
-    new G4LogicalVolume(solidShape1,         //its solid
-                        shape1_mat,          //its material
-                        "Shape1");           //its name
-               
-  new G4PVPlacement(0,                       //no rotation
-                    pos1,                    //at position
-                    logicShape1,             //its logical volume
-                    "Shape1",                //its name
-                    logicEnv,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-
-  //     
-  // Shape 2
   //
-  G4Material* shape2_mat = nist->FindOrBuildMaterial("G4_BONE_COMPACT_ICRU");
-  G4ThreeVector pos2 = G4ThreeVector(0, -1*cm, 7*cm);
+  G4Material* env_mat = nist->FindOrBuildMaterial("G4_AIR");
+  G4Box* solidEnv = new G4Box("Envelope", 0.5*env_sizeXY, 0.5*env_sizeXY, 0.5*env_sizeZ);
+  G4LogicalVolume* logicEnv = new G4LogicalVolume(solidEnv, env_mat, "Envelope");
+  new G4PVPlacement(0, G4ThreeVector(), logicEnv, "Envelope", logicWorld, false, 0, checkOverlaps);
 
-  // Trapezoid shape       
-  G4double shape2_dxa = 12*cm, shape2_dxb = 12*cm;
-  G4double shape2_dya = 10*cm, shape2_dyb = 16*cm;
-  G4double shape2_dz  = 6*cm;      
-  G4Trd* solidShape2 =    
-    new G4Trd("Shape2",                      //its name
-              0.5*shape2_dxa, 0.5*shape2_dxb, 
-              0.5*shape2_dya, 0.5*shape2_dyb, 0.5*shape2_dz); //its size
-                
-  G4LogicalVolume* logicShape2 =                         
-    new G4LogicalVolume(solidShape2,         //its solid
-                        shape2_mat,          //its material
-                        "Shape2");           //its name
-               
-  new G4PVPlacement(0,                       //no rotation
-                    pos2,                    //at position
-                    logicShape2,             //its logical volume
-                    "Shape2",                //its name
-                    logicEnv,                //its mother  volume
-                    false,                   //no boolean operation
-                    0,                       //copy number
-                    checkOverlaps);          //overlaps checking
-                
-  // Set Shape2 as scoring volume
+  G4double scintSizeX = 3.*cm;
+  G4double scintSizeY = 3.*cm;
+  G4double scintSizeZ = 1.*cm;
+
+  G4double scint1Z = -10*cm;
+  G4double scint2Z = 10*cm;
+  
   //
-  fScoringVolume = logicShape2;
+  // Scintillator 1
+  //
+  G4Box *scintiSolid1 = new G4Box("ScintiBox1",scintSizeX, scintSizeY, scintSizeZ);
+  fScintiLogical1 = new G4LogicalVolume(scintiSolid1, scintillator, "ScintiLogical1");
+  new G4PVPlacement(0, G4ThreeVector(0.,0.,scint1Z), fScintiLogical1, "ScintiPhysical1", logicEnv, false, 0, checkOverlaps);
+
+  //
+  // Scintillator 2
+  //
+  G4Box *scintiSolid2 = new G4Box("ScintiBox2",scintSizeX, scintSizeY, scintSizeZ);
+  fScintiLogical2 = new G4LogicalVolume(scintiSolid2, scintillator, "ScintiLogical2");
+  new G4PVPlacement(0, G4ThreeVector(0.,0.,scint2Z), fScintiLogical2, "ScintiPhysical2", logicEnv, false, 0, checkOverlaps);
+
+  //
+  // Quartz windows
+  //
+  G4double quartzWindowRadius = 25.4*mm;
+  G4double quartzWindowThickness = 5.*mm;
+  G4double ftmRadius = 7.5*cm;
+  G4double quartz1Z = -ftmRadius/2.;
+  G4double quartz2Z = ftmRadius/2.;
+    
+  //
+  // Quartz window 1
+  //
+  G4Tubs *quartzSolid1 = new G4Tubs("QuartzTub1", 0, quartzWindowRadius, quartzWindowThickness/2., 0, 2*CLHEP::pi);
+  fQuartzLogical1 = new G4LogicalVolume(quartzSolid1, quartz, "QuartzLogical1");
+  new G4PVPlacement(0, G4ThreeVector(0.,0.,quartz1Z), fQuartzLogical1, "QuartzPhysical1", logicEnv, false, 0, checkOverlaps);
+
+  //
+  // Quartz window 2
+  //
+  G4Tubs *quartzSolid2 = new G4Tubs("QuartzTub2", 0, quartzWindowRadius, quartzWindowThickness/2., 0, 2*CLHEP::pi);
+  fQuartzLogical2 = new G4LogicalVolume(quartzSolid2, quartz, "QuartzLogical2");
+  new G4PVPlacement(0, G4ThreeVector(0.,0.,quartz2Z), fQuartzLogical2, "QuartzPhysical2", logicEnv, false, 0, checkOverlaps);
+
+  
+  // Set scintillators as scoring volumes
+  //
+  fScoringVolume1 = fScintiLogical1;
+  fScoringVolume2 = fScintiLogical2;
 
   //
   //always return the physical World
   //
   return physWorld;
 }
+
+void B1DetectorConstruction::ConstructMaterials() {
+   auto nistManager = G4NistManager::Instance();
+
+   // Air 
+   nistManager->FindOrBuildMaterial("G4_AIR");
+
+   // Argon gas
+   nistManager->FindOrBuildMaterial("G4_Ar");
+   // With a density different from the one defined in NIST
+   // G4double density = 1.782e-03*g/cm3; 
+   // nistManager->BuildMaterialWithNewDensity("B5_Ar","G4_Ar",density);
+   // !! cases segmentation fault
+
+   // Scintillator
+   // (PolyVinylToluene, C_9H_10)
+   nistManager->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
+
+   // Vacuum "Galactic"
+   // nistManager->FindOrBuildMaterial("G4_Galactic");
+
+   // Vacuum "Air with low density"
+   // auto air = G4Material::GetMaterial("G4_AIR");
+   // G4double density = 1.0e-5*air->GetDensity();
+   // nistManager
+   //   ->BuildMaterialWithNewDensity("Air_lowDensity", "G4_AIR", density);
+
+   G4cout << G4endl << "The materials defined are: " << G4endl << G4endl;
+   G4cout << *(G4Material::GetMaterialTable()) << G4endl;
+ }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -15,6 +15,7 @@ if(WITH_GEANT4_UIVIS)
 else()
   find_package(Geant4 REQUIRED)
 endif()
+find_package(ROOT 6.18 CONFIG REQUIRED)
 
 #----------------------------------------------------------------------------
 # Setup Geant4 include directories and compile definitions
@@ -36,6 +37,7 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #
 add_executable(exampleB1 exampleB1.cc ${sources} ${headers})
 target_link_libraries(exampleB1 ${Geant4_LIBRARIES})
+target_link_libraries(exampleB1 PUBLIC ROOT::Core ROOT::Imt ROOT::RIO ROOT::Net ROOT::Hist ROOT::Graf ROOT::Graf3d ROOT::Gpad ROOT::ROOTVecOps ROOT::Tree ROOT::TreePlayer ROOT::Rint ROOT::Postscript ROOT::Matrix ROOT::Physics ROOT::MathCore ROOT::Thread ROOT::MultiProc ROOT::ROOTDataFrame)
 
 #----------------------------------------------------------------------------
 # Copy all scripts to the build directory, i.e. the directory in which we
@@ -48,6 +50,7 @@ set(EXAMPLEB1_SCRIPTS
   init_vis.mac
   run1.mac
   run2.mac
+  run.mac
   vis.mac
   )
 

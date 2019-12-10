@@ -40,18 +40,36 @@ class B1RunAction;
 
 class B1EventAction : public G4UserEventAction
 {
-  public:
-    B1EventAction(B1RunAction* runAction);
-    virtual ~B1EventAction();
+public:
+  B1EventAction(B1RunAction* runAction);
+  virtual ~B1EventAction();
 
-    virtual void BeginOfEventAction(const G4Event* event);
-    virtual void EndOfEventAction(const G4Event* event);
+  virtual void BeginOfEventAction(const G4Event* event);
+  virtual void EndOfEventAction(const G4Event* event);
 
-    void AddEdep(G4double edep) { fEdep += edep; }
+  void AddEdep(G4double edep) { fEdep += edep; }
+  
+  void AddDeviationAngle(G4double deviationAngle) {
+    if (fDeviationAngle == -10.) fDeviationAngle = deviationAngle;
+  }
 
-  private:
-    B1RunAction* fRunAction;
-    G4double     fEdep;
+  void AddBeginningPosition(G4double beginningPosition) {
+    if (fBeginningPosition == -1.) fBeginningPosition = beginningPosition;
+  }
+
+  void AddEndPosition(G4double endPosition) {
+    if (fEndPosition == -1.) fEndPosition = endPosition;
+  }
+
+  void AddQuartzWindow1Edep(G4double edep) { fQuartzWindow1Edep += edep; }
+
+private:
+  B1RunAction* fRunAction;
+  G4double     fEdep;
+  G4double     fDeviationAngle;
+  G4double     fBeginningPosition;
+  G4double     fEndPosition;
+  G4double     fQuartzWindow1Edep;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

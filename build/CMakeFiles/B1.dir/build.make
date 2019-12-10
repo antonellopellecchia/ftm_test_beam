@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/anto/Documents/Dottorato/simulations/geant4/examples/B1
+CMAKE_SOURCE_DIR = /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build
+CMAKE_BINARY_DIR = /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build
 
 # Utility rule file for B1.
 
@@ -71,6 +71,6 @@ CMakeFiles/B1.dir/clean:
 .PHONY : CMakeFiles/B1.dir/clean
 
 CMakeFiles/B1.dir/depend:
-	cd /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/anto/Documents/Dottorato/simulations/geant4/examples/B1 /home/anto/Documents/Dottorato/simulations/geant4/examples/B1 /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build /home/anto/Documents/Dottorato/simulations/geant4/examples/B1/build/CMakeFiles/B1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build /home/anto/Documents/Dottorato/simulations/geant4/ftm_test_beam/build/CMakeFiles/B1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/B1.dir/depend
 

@@ -45,11 +45,21 @@ class B1DetectorConstruction : public G4VUserDetectorConstruction
     virtual ~B1DetectorConstruction();
 
     virtual G4VPhysicalVolume* Construct();
+
+    void ConstructMaterials();
     
-    G4LogicalVolume* GetScoringVolume() const { return fScoringVolume; }
+    G4LogicalVolume* GetScoringVolume1() const { return fScoringVolume1; }
+    G4LogicalVolume* GetScoringVolume2() const { return fScoringVolume2; }
+    G4LogicalVolume* GetQuartzWindow1() const { return fQuartzLogical1; }
+    G4LogicalVolume* GetQuartzWindow2() const { return fQuartzLogical2; }
 
   protected:
-    G4LogicalVolume*  fScoringVolume;
+    G4LogicalVolume*  fScoringVolume1;
+    G4LogicalVolume*  fScoringVolume2;
+    G4LogicalVolume*  fScintiLogical1;
+    G4LogicalVolume*  fScintiLogical2;
+    G4LogicalVolume*  fQuartzLogical1;
+    G4LogicalVolume*  fQuartzLogical2;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

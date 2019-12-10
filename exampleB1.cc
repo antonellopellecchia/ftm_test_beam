@@ -51,8 +51,10 @@ int main(int argc,char** argv)
   // Detect interactive mode (if no arguments) and define UI session
   //
   G4UIExecutive* ui = 0;
+  bool headless = true;
   if ( argc == 1 ) {
     ui = new G4UIExecutive(argc, argv);
+    headless = false;
   }
 
   // Choose the Random engine
@@ -77,7 +79,7 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(physicsList);
     
   // User action initialization
-  runManager->SetUserInitialization(new B1ActionInitialization());
+  runManager->SetUserInitialization(new B1ActionInitialization(headless));
   
   // Initialize visualization
   //

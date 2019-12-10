@@ -38,7 +38,11 @@
 B1EventAction::B1EventAction(B1RunAction* runAction)
 : G4UserEventAction(),
   fRunAction(runAction),
-  fEdep(0.)
+  fEdep(0.),
+  fDeviationAngle(-10.),
+  fBeginningPosition(-1.),
+  fEndPosition(-1.)
+  //fScintillatorHitPosition(0., 0., 0.)
 {} 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -51,6 +55,10 @@ B1EventAction::~B1EventAction()
 void B1EventAction::BeginOfEventAction(const G4Event*)
 {    
   fEdep = 0.;
+  fDeviationAngle = -10.;
+  fBeginningPosition = -1.;
+  fEndPosition = -1.;
+  fQuartzWindow1Edep = 0.;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -59,6 +67,10 @@ void B1EventAction::EndOfEventAction(const G4Event*)
 {   
   // accumulate statistics in run action
   fRunAction->AddEdep(fEdep);
+  fRunAction->AddDeviationAngle(fDeviationAngle);
+  fRunAction->AddBeginningPosition(fBeginningPosition);
+  fRunAction->AddEndPosition(fEndPosition);
+  fRunAction->AddQuartzWindow1Edep(fQuartzWindow1Edep);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

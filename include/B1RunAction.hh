@@ -34,6 +34,8 @@
 #include "G4Accumulable.hh"
 #include "globals.hh"
 
+#include <vector>
+
 class G4Run;
 
 /// Run action class
@@ -44,19 +46,30 @@ class G4Run;
 
 class B1RunAction : public G4UserRunAction
 {
-  public:
-    B1RunAction();
-    virtual ~B1RunAction();
+public:
+  B1RunAction(bool headless);
+  virtual ~B1RunAction();
 
-    // virtual G4Run* GenerateRun();
-    virtual void BeginOfRunAction(const G4Run*);
-    virtual void   EndOfRunAction(const G4Run*);
+  // virtual G4Run* GenerateRun();
+  virtual void BeginOfRunAction(const G4Run*);
+  virtual void   EndOfRunAction(const G4Run*);
 
-    void AddEdep (G4double edep); 
+  void AddEdep (G4double edep); 
+  void AddDeviationAngle (G4double deviationAngle); 
+  void AddBeginningPosition (G4double beginningPosition); 
+  void AddEndPosition (G4double endPosition);
+  void AddQuartzWindow1Edep(G4double edep);
 
-  private:
-    G4Accumulable<G4double> fEdep;
-    G4Accumulable<G4double> fEdep2;
+private:
+  bool fHeadless;
+  G4Accumulable<G4double> fEdep;
+  G4Accumulable<G4double> fEdep2;
+  std::vector<G4double> fEdepVector;
+  std::vector<G4double> fDeviationAngleVector;
+  std::vector<G4double> fBeginningPositionVector;
+  std::vector<G4double> fEndPositionVector;
+  std::vector<G4double> fQuartzWindow1EdepVector;
+  //G4ThreeVector *fScintillatorHitPosition;
 };
 
 #endif
