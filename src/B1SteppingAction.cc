@@ -96,8 +96,10 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
     G4double y0 = vertexPosition.getY();
     G4double x1 = position.getX();
     G4double y1 = position.getY();
-    fEventAction->AddBeginningPosition(sqrt(x0*x0+y0*y0));
-    fEventAction->AddEndPosition(sqrt(x1*x1+y1*y1));
+    std::tuple<G4double, G4double> posBeginning = std::make_tuple(x0, y0);
+    std::tuple<G4double, G4double> posEnd = std::make_tuple(x1, y1);
+    fEventAction->AddBeginningPosition(posBeginning);
+    fEventAction->AddEndPosition(posEnd);
   } else if (volume == fQuartzWindow1) {
     // if we are in the first quartz window,
     // store the energy deposited

@@ -54,10 +54,10 @@ public:
   virtual void BeginOfRunAction(const G4Run*);
   virtual void   EndOfRunAction(const G4Run*);
 
-  void AddEdep (G4double edep); 
-  void AddDeviationAngle (G4double deviationAngle); 
-  void AddBeginningPosition (G4double beginningPosition); 
-  void AddEndPosition (G4double endPosition);
+  void AddEdep (G4double edep);
+  void AddDeviationAngle (G4double deviationAngle);
+  void AddBeginningPosition (std::tuple<G4double, G4double> beginningPosition);
+  void AddEndPosition (std::tuple<G4double, G4double> endPosition);
   void AddQuartzWindow1Edep(G4double edep);
 
 private:
@@ -66,10 +66,9 @@ private:
   G4Accumulable<G4double> fEdep2;
   std::vector<G4double> fEdepVector;
   std::vector<G4double> fDeviationAngleVector;
-  std::vector<G4double> fBeginningPositionVector;
-  std::vector<G4double> fEndPositionVector;
+  std::vector<std::tuple<G4double, G4double>> fBeginningPositionVector;
+  std::vector<std::tuple<G4double, G4double>> fEndPositionVector;
   std::vector<G4double> fQuartzWindow1EdepVector;
-  //G4ThreeVector *fScintillatorHitPosition;
 };
 
 #endif

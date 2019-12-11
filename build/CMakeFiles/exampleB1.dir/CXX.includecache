@@ -39,6 +39,8 @@ TApplication.h
 -
 TH1F.h
 -
+TGraph.h
+-
 TH2F.h
 -
 TFile.h
@@ -2601,6 +2603,22 @@ TSchemaHelper.h
 /home/anto/Downloads/Programmi/root-6.18.04/install/include/TSchemaHelper.h
 Rtypes.h
 /home/anto/Downloads/Programmi/root-6.18.04/install/include/Rtypes.h
+
+/home/anto/Downloads/Programmi/root-6.18.04/install/include/TGraph.h
+TNamed.h
+/home/anto/Downloads/Programmi/root-6.18.04/install/include/TNamed.h
+TAttLine.h
+/home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttLine.h
+TAttFill.h
+/home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttFill.h
+TAttMarker.h
+/home/anto/Downloads/Programmi/root-6.18.04/install/include/TAttMarker.h
+TVectorFfwd.h
+/home/anto/Downloads/Programmi/root-6.18.04/install/include/TVectorFfwd.h
+TVectorDfwd.h
+/home/anto/Downloads/Programmi/root-6.18.04/install/include/TVectorDfwd.h
+TFitResultPtr.h
+/home/anto/Downloads/Programmi/root-6.18.04/install/include/TFitResultPtr.h
 
 /home/anto/Downloads/Programmi/root-6.18.04/install/include/TH1.h
 TAxis.h

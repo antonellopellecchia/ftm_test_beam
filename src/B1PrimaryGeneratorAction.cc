@@ -140,10 +140,12 @@ void B1PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
   // gaussian positioning, center in (0,0), sigma 1 mm
   G4double beamSigma = 1.*mm;
-  G4double r0 = G4RandGauss::shoot(0, beamSigma);
-  G4double theta0 = G4UniformRand()*CLHEP::pi;
-  x0 = r0*cos(theta0);
-  y0 = r0*sin(theta0);
+  //G4double r0 = G4RandGauss::shoot(0, beamSigma);
+  //G4double theta0 = G4UniformRand()*CLHEP::pi;
+  //x0 = r0*cos(theta0);
+  //y0 = r0*sin(theta0);
+  x0 = G4RandGauss::shoot(0, beamSigma);
+  y0 = G4RandGauss::shoot(0, beamSigma);
   fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }

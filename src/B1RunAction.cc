@@ -31,6 +31,7 @@
 #include <TROOT.h>
 #include <TApplication.h>
 #include <TH1F.h>
+#include <TGraph.h>
 #include <TH2F.h>
 #include <TFile.h> 
 #include <TStyle.h>
@@ -126,6 +127,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
   G4double rmsDose = rms/mass;
 
   if (fHeadless) {
+    G4cout << G4endl;
     /*
       Store histogram with energy loss distribution in the first scintillator
     */
@@ -156,34 +158,115 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
 
 
     /*
+      Store initial and final beam profile scatter plot
+    */
+    TCanvas *profileCanvas = new TCanvas("c", "c", 1400, 700);
+    profileCanvas->Divide(2, 1);
+
+    profileCanvas->cd(1);
+    TGraph *plotBeginningPosition = new TGraph(fBeginningPositionVector.size());
+    for (unsigned long int i=0; i<fBeginningPositionVector.size(); i++)
+      plotBeginningPosition->SetPoint(i, std::get<0>(fBeginningPositionVector[i]), std::get<1>(fBeginningPositionVector[i]));
+    plotBeginningPosition->SetTitle("Beginning position");
+    plotBeginningPosition->GetXaxis()->SetTitle("X position (mm)");
+    plotBeginningPosition->GetYaxis()->SetTitle("Y position (mm)");
+    plotBeginningPosition->GetXaxis()->SetLimits(-10., 10.);
+    plotBeginningPosition->GetYaxis()->SetLimits(-10., 10.);
+    plotBeginningPosition->GetXaxis()->SetRangeUser(-10., 10.);
+    plotBeginningPosition->GetYaxis()->SetRangeUser(-10., 10.);
+    plotBeginningPosition->Draw("ap");
+    plotBeginningPosition->SaveAs("./root/beginning_profile.root");
+
+    profileCanvas->cd(2);
+    TGraph *plotEndPosition = new TGraph(fEndPositionVector.size());
+    for (unsigned long int i=0; i<fEndPositionVector.size(); i++)
+      plotEndPosition->SetPoint(i, std::get<0>(fEndPositionVector[i]), std::get<1>(fEndPositionVector[i]));
+    plotEndPosition->SetTitle("End position");
+    plotEndPosition->GetXaxis()->SetTitle("X position (mm)");
+    plotEndPosition->GetYaxis()->SetTitle("Y position (mm)");
+    plotEndPosition->GetXaxis()->SetLimits(-10., 10.);
+    plotEndPosition->GetYaxis()->SetLimits(-10., 10.);
+    plotEndPosition->GetXaxis()->SetRangeUser(-10., 10.);
+    plotEndPosition->GetYaxis()->SetRangeUser(-10., 10.);
+    plotEndPosition->Draw("ap");
+    plotEndPosition->SaveAs("./root/end_profile.root");
+    
+    profileCanvas->SaveAs("./root/profile.root");
+
+    
+    /*
       Store histogram with initial and final particle radial position
     */
-    TCanvas *positionCanvas = new TCanvas("c", "c", 800, 600);
-    positionCanvas->Divide(1, 2);
+    TCanvas *positionCanvas = new TCanvas("c", "c", 1400, 700);
+    positionCanvas->Divide(2, 1);
 
     positionCanvas->cd(1);
-    G4double max_r0 = *max_element(fBeginningPositionVector.begin(),fBeginningPositionVector.end());
-    G4double min_r0 = *min_element(fBeginningPositionVector.begin(),fBeginningPositionVector.end());
-    TH1F *hBeginningPosition = new TH1F("hBeginningPosition", "Beginning position", 5000, 0, 20.*mm);
-    for (G4double beginningPosition:fBeginningPositionVector) hBeginningPosition->Fill(beginningPosition);
+    //G4double max_r0 = *max_element(fBeginningPositionVector.begin(),fBeginningPositionVector.end());
+    //G4double min_r0 = *min_element(fBeginningPositionVector.begin(),fBeginningPositionVector.end());
+    TH1F *hBeginningPosition = new TH1F("hBeginningPosition", "Beginning position", 5000, 0, 10.*mm);
+    for (auto beginningPosition:fBeginningPositionVector) {
+      G4double x = std::get<0>(beginningPosition);
+      G4double y = std::get<1>(beginningPosition);
+      hBeginningPosition->Fill(sqrt(x*x+y*y));
+    }
     hBeginningPosition->GetXaxis()->SetTitle("Radial position (mm)");
     hBeginningPosition->GetYaxis()->SetTitle("Event rate");
     hBeginningPosition->Draw();
     hBeginningPosition->SaveAs("./root/beginning_position.root");
 
     positionCanvas->cd(2);
-    G4double max_r1 = *max_element(fEndPositionVector.begin(),fEndPositionVector.end());
-    G4double min_r1 = *min_element(fEndPositionVector.begin(),fEndPositionVector.end());
-    TH1F *hEndPosition = new TH1F("hEndPosition", "End position", 5000, 0, 20.*mm);
-    for (G4double endPosition:fEndPositionVector) hEndPosition->Fill(endPosition);
+    //G4double max_r1 = *max_element(fEndPositionVector.begin(),fEndPositionVector.end());
+    //G4double min_r1 = *min_element(fEndPositionVector.begin(),fEndPositionVector.end());
+    TH1F *hEndPosition = new TH1F("hEndPosition", "End position", 5000, 0, 10.*mm);
+    for (auto endPosition:fEndPositionVector) {
+      G4double x = std::get<0>(endPosition);
+      G4double y = std::get<1>(endPosition);
+      hEndPosition->Fill(sqrt(x*x+y*y));
+    }
     hEndPosition->GetXaxis()->SetTitle("Radial position (mm)");
     hEndPosition->GetYaxis()->SetTitle("Event rate");
-    hEndPosition->SaveAs("./root/end_position.root");
     hEndPosition->Draw();
-  
+    hEndPosition->SaveAs("./root/end_position.root");
+
     positionCanvas->SaveAs("./root/position.root");
 
 
+    /*
+      Store histogram with initial and final particle radial position
+    */
+    TCanvas *positionCanvas3d = new TCanvas("c", "c", 1400, 700);
+    positionCanvas3d->Divide(2, 1);
+
+    positionCanvas3d->cd(1);
+    TH2F *hBeginningPosition3d = new TH2F("hBeginningPosition3d", "Beginning position", 70, -8., 8., 70, -8., 8.);
+    for (auto beginningPosition:fBeginningPositionVector) {
+      G4double x = std::get<0>(beginningPosition);
+      G4double y = std::get<1>(beginningPosition);
+      hBeginningPosition3d->Fill(x, y);
+    }
+    hBeginningPosition3d->GetXaxis()->SetTitle("X position (mm)");
+    hBeginningPosition3d->GetYaxis()->SetTitle("Y position (mm)");
+    hBeginningPosition3d->GetZaxis()->SetTitle("Event rate");
+    hBeginningPosition3d->Draw("SURF3");
+    hBeginningPosition3d->SaveAs("./root/beginning_position3d.root");
+
+    positionCanvas3d->cd(2);
+    TH2F *hEndPosition3d = new TH2F("hEndPosition3d", "End position", 70, -8., 8., 70, -8., 8.);
+    for (auto endPosition:fEndPositionVector) {
+      G4double x = std::get<0>(endPosition);
+      G4double y = std::get<1>(endPosition);
+      hEndPosition3d->Fill(x, y);
+    }
+    hEndPosition3d->GetXaxis()->SetTitle("X position (mm)");
+    hEndPosition3d->GetYaxis()->SetTitle("Y position (mm)");
+    hEndPosition3d->GetZaxis()->SetTitle("Event rate");
+    hEndPosition3d->Draw("SURF3");
+    hEndPosition3d->SaveAs("./root/end_position3d.root");
+
+    positionCanvas3d->SaveAs("./root/position3d.root");
+
+
+    
     /*
       Store histogram with energy loss distribution in the first scintillator
     */
@@ -261,15 +344,15 @@ void B1RunAction::AddDeviationAngle(G4double deviationAngle)
   if (deviationAngle != -10.) fDeviationAngleVector.push_back(deviationAngle);
 }
 
-void B1RunAction::AddBeginningPosition (G4double beginningPosition) {
-  if (beginningPosition != -1.) {
+void B1RunAction::AddBeginningPosition (std::tuple<G4double, G4double> beginningPosition) {
+  if (beginningPosition != std::make_tuple(1.e6, 1.e6)) {
     fBeginningPositionVector.push_back(beginningPosition);
     //G4cout << "Beginning position: " << beginningPosition;
   }
 }
 
-void B1RunAction::AddEndPosition (G4double endPosition) {
-  if (endPosition != -1.) {
+void B1RunAction::AddEndPosition (std::tuple<G4double, G4double> endPosition) {
+  if (endPosition != std::make_tuple(1.e6, 1.e6)) {
     fEndPositionVector.push_back(endPosition);
     //G4cout << " end: " << endPosition << G4endl;
   }

@@ -53,12 +53,12 @@ public:
     if (fDeviationAngle == -10.) fDeviationAngle = deviationAngle;
   }
 
-  void AddBeginningPosition(G4double beginningPosition) {
-    if (fBeginningPosition == -1.) fBeginningPosition = beginningPosition;
+  void AddBeginningPosition(std::tuple<G4double, G4double> beginningPosition) {
+    if (fBeginningPosition == std::make_tuple(1.e6, 1.e6)) fBeginningPosition = beginningPosition;
   }
 
-  void AddEndPosition(G4double endPosition) {
-    if (fEndPosition == -1.) fEndPosition = endPosition;
+  void AddEndPosition(std::tuple<G4double, G4double> endPosition) {
+    if (fEndPosition == std::make_tuple(1.e6, 1.e6)) fEndPosition = endPosition;
   }
 
   void AddQuartzWindow1Edep(G4double edep) { fQuartzWindow1Edep += edep; }
@@ -67,8 +67,8 @@ private:
   B1RunAction* fRunAction;
   G4double     fEdep;
   G4double     fDeviationAngle;
-  G4double     fBeginningPosition;
-  G4double     fEndPosition;
+  std::tuple<G4double, G4double> fBeginningPosition;
+  std::tuple<G4double, G4double> fEndPosition;
   G4double     fQuartzWindow1Edep;
 };
 

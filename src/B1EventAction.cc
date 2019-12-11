@@ -40,8 +40,8 @@ B1EventAction::B1EventAction(B1RunAction* runAction)
   fRunAction(runAction),
   fEdep(0.),
   fDeviationAngle(-10.),
-  fBeginningPosition(-1.),
-  fEndPosition(-1.)
+  fBeginningPosition(std::make_tuple(1.e6, 1.e6)),
+  fEndPosition(std::make_tuple(1.e6, 1.e6))
   //fScintillatorHitPosition(0., 0., 0.)
 {} 
 
@@ -56,8 +56,8 @@ void B1EventAction::BeginOfEventAction(const G4Event*)
 {    
   fEdep = 0.;
   fDeviationAngle = -10.;
-  fBeginningPosition = -1.;
-  fEndPosition = -1.;
+  fBeginningPosition = std::make_tuple(1.e6, 1.e6);
+  fEndPosition = std::make_tuple(1.e6, 1.e6);
   fQuartzWindow1Edep = 0.;
 }
 

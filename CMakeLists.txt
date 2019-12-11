@@ -15,7 +15,7 @@ if(WITH_GEANT4_UIVIS)
 else()
   find_package(Geant4 REQUIRED)
 endif()
-find_package(ROOT 6.18 CONFIG REQUIRED)
+find_package(ROOT REQUIRED)
 
 #----------------------------------------------------------------------------
 # Setup Geant4 include directories and compile definitions

@@ -117,14 +117,14 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   //
   // Scintillator 1
   //
-  G4Box *scintiSolid1 = new G4Box("ScintiBox1",scintSizeX, scintSizeY, scintSizeZ);
+  G4Box *scintiSolid1 = new G4Box("ScintiBox1", scintSizeX, scintSizeY, scintSizeZ);
   fScintiLogical1 = new G4LogicalVolume(scintiSolid1, scintillator, "ScintiLogical1");
   new G4PVPlacement(0, G4ThreeVector(0.,0.,scint1Z), fScintiLogical1, "ScintiPhysical1", logicEnv, false, 0, checkOverlaps);
 
   //
   // Scintillator 2
   //
-  G4Box *scintiSolid2 = new G4Box("ScintiBox2",scintSizeX, scintSizeY, scintSizeZ);
+  G4Box *scintiSolid2 = new G4Box("ScintiBox2", scintSizeX, scintSizeY, scintSizeZ);
   fScintiLogical2 = new G4LogicalVolume(scintiSolid2, scintillator, "ScintiLogical2");
   new G4PVPlacement(0, G4ThreeVector(0.,0.,scint2Z), fScintiLogical2, "ScintiPhysical2", logicEnv, false, 0, checkOverlaps);
 
