@@ -52,7 +52,8 @@ B1DetectorConstruction::B1DetectorConstruction()
   fScintiLogical1(nullptr),
   fScintiLogical2(nullptr),
   fQuartzLogical1(nullptr),
-  fQuartzLogical2(nullptr)
+  fQuartzLogical2(nullptr),
+  fCherenkovLogical(nullptr)
 { }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -68,15 +69,36 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   G4Material *air = G4Material::GetMaterial("G4_AIR");
   G4Material *scintillator = G4Material::GetMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
 
-  // Quartz definition (SiO2)
   G4Element *elO  = new G4Element("Oxygen", "O", 8., 16.00*g/mole);
   G4Element *elSi = new G4Element("Silicon", "Si", 14., 28.09*g/mole);
-  G4double density = 2.200*g/cm3; // fused quartz
+  G4Element *elAl  = new G4Element("Aluminum", "Al", 13., 26.98*g/mole);
+
+  // Quartz definition (SiO2)
+  G4double quartzDensity = 2.200*g/cm3; // fused quartz
   //density = 2.64*g/cm3;  // crystalline quartz (c.f. PDG)
-  G4Material *quartz = new G4Material("quartz", density, 2);
+  G4Material *quartz = new G4Material("quartz", quartzDensity, 2);
   quartz->AddElement(elSi, 1);
   quartz->AddElement(elO , 2);
-   
+
+  // Sapphire definition (Al2O3)
+  G4double sapphireDensity = 3.98*g/cm3;
+  G4double sapphireRefractiveIndex = 1.76;
+  G4Material *sapphire = new G4Material("sapphire", sapphireDensity, 2);
+  sapphire->AddElement(elAl, 2);
+  sapphire->AddElement(elO , 3);
+  // sapphire refractive index for all photon momenta
+  const G4int nCherenkovMomenta = 10;
+  G4double pCherenkov[nCherenkovMomenta];
+  G4double refractiveIndex[nCherenkovMomenta];
+  for (G4int i=0; i<nCherenkovMomenta; i++) {
+    pCherenkov[i] = (float)(i+1)*eV;
+    refractiveIndex[i] = sapphireRefractiveIndex;
+  }
+  G4MaterialPropertiesTable *sapphireProperties = new G4MaterialPropertiesTable();
+  sapphireProperties->AddProperty("RINDEX", pCherenkov, refractiveIndex,
+				  nCherenkovMomenta)->SetSpline(true);
+  sapphire->SetMaterialPropertiesTable(sapphireProperties);
+     
   // Get nist material manager
   G4NistManager* nist = G4NistManager::Instance();
 
@@ -111,8 +133,8 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   G4double scintSizeY = 3.*cm;
   G4double scintSizeZ = 1.*cm;
 
-  G4double scint1Z = -10*cm;
-  G4double scint2Z = 10*cm;
+  G4double scint1Z = -15*cm;
+  G4double scint2Z = 15*cm;
   
   //
   // Scintillator 1
@@ -151,6 +173,16 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   fQuartzLogical2 = new G4LogicalVolume(quartzSolid2, quartz, "QuartzLogical2");
   new G4PVPlacement(0, G4ThreeVector(0.,0.,quartz2Z), fQuartzLogical2, "QuartzPhysical2", logicEnv, false, 0, checkOverlaps);
 
+  //
+  // Cherenkov radiator
+  //
+  G4double cherenkovRadiatorLength = 3.*cm;
+  G4double cherenkovRadiatorThickness = 20.*mm;
+  G4double cherenkovRadiatorZ = 8.*cm;
+
+  G4Box *cherenkovSolid = new G4Box("CherenkovBox", cherenkovRadiatorLength, cherenkovRadiatorLength, cherenkovRadiatorThickness);
+  fCherenkovLogical = new G4LogicalVolume(cherenkovSolid, sapphire, "CherenkovLogical");
+  new G4PVPlacement(0, G4ThreeVector(0.,0.,cherenkovRadiatorZ), fCherenkovLogical, "CherenkovPhysical", logicEnv, false, 0, checkOverlaps);
   
   // Set scintillators as scoring volumes
   //

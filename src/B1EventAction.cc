@@ -30,6 +30,7 @@
 #include "B1EventAction.hh"
 #include "B1RunAction.hh"
 
+#include "G4ThreeVector.hh"
 #include "G4Event.hh"
 #include "G4RunManager.hh"
 
@@ -39,6 +40,7 @@ B1EventAction::B1EventAction(B1RunAction* runAction)
 : G4UserEventAction(),
   fRunAction(runAction),
   fEdep(0.),
+  fEdepByProcess(),
   fDeviationAngle(-10.),
   fBeginningPosition(std::make_tuple(1.e6, 1.e6)),
   fEndPosition(std::make_tuple(1.e6, 1.e6))
@@ -55,22 +57,43 @@ B1EventAction::~B1EventAction()
 void B1EventAction::BeginOfEventAction(const G4Event*)
 {    
   fEdep = 0.;
+  fEdepByProcess = std::map<G4String, G4double>();
+  fDepositCount = std::map<G4String, G4int>();
   fDeviationAngle = -10.;
   fBeginningPosition = std::make_tuple(1.e6, 1.e6);
   fEndPosition = std::make_tuple(1.e6, 1.e6);
   fQuartzWindow1Edep = 0.;
+  fCherenkovEndpointVector = {};
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B1EventAction::EndOfEventAction(const G4Event*)
+void B1EventAction::EndOfEventAction(const G4Event* event)
 {   
   // accumulate statistics in run action
   fRunAction->AddEdep(fEdep);
+  fRunAction->AddEdepByProcess(fEdepByProcess);
+  fRunAction->AddDepositCount(fDepositCount);
   fRunAction->AddDeviationAngle(fDeviationAngle);
   fRunAction->AddBeginningPosition(fBeginningPosition);
   fRunAction->AddEndPosition(fEndPosition);
   fRunAction->AddQuartzWindow1Edep(fQuartzWindow1Edep);
+  //fRunAction->AddCherenkovEndpointVector(fCherenkovEndpointVector);
+  
+  /*G4cout << G4endl;
+  G4cout << "Total deposit (MeV): " << fEdep << G4endl;
+  for (auto& edepPair: fEdepByProcess) {
+    G4cout << "\t" << edepPair.first << ": " << edepPair.second << G4endl;
+    }*/
+  
+  //G4cout << G4endl << "------------------------------------" << G4endl << G4endl;
+  G4int eventID = event->GetEventID();
+  if (eventID%100 == 0) G4cout << eventID << "/" << fRunAction->nOfEvents << "\t\t" << G4endl;
 }
+
+void B1EventAction::AddCherenkovArrivalTime(G4double arrivalTime) {
+  fRunAction->AddCherenkovArrivalTime(arrivalTime);
+}
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

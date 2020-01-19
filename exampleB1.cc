@@ -29,6 +29,7 @@
 
 #include "B1DetectorConstruction.hh"
 #include "B1ActionInitialization.hh"
+#include "B1PhysicsList.hh"
 
 #ifdef G4MULTITHREADED
 #include "G4MTRunManager.hh"
@@ -44,6 +45,8 @@
 
 #include "Randomize.hh"
 
+using namespace std;
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 int main(int argc,char** argv)
@@ -52,8 +55,11 @@ int main(int argc,char** argv)
   //
   G4UIExecutive* ui = 0;
   bool headless = true;
-  if ( argc == 1 ) {
+
+  if (argc == 1) {
     ui = new G4UIExecutive(argc, argv);
+    headless = false;
+  } else if (argc == 3 && string("test") == argv[2]) { // headless, but no output
     headless = false;
   }
 
@@ -74,8 +80,8 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(new B1DetectorConstruction());
 
   // Physics list
-  G4VModularPhysicsList* physicsList = new QBBC;
-  physicsList->SetVerboseLevel(1);
+  G4VModularPhysicsList* physicsList = new B1PhysicsList; //new QBBC;
+  physicsList->SetVerboseLevel(0);
   runManager->SetUserInitialization(physicsList);
     
   // User action initialization

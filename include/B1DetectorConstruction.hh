@@ -52,6 +52,7 @@ class B1DetectorConstruction : public G4VUserDetectorConstruction
     G4LogicalVolume* GetScoringVolume2() const { return fScoringVolume2; }
     G4LogicalVolume* GetQuartzWindow1() const { return fQuartzLogical1; }
     G4LogicalVolume* GetQuartzWindow2() const { return fQuartzLogical2; }
+    G4LogicalVolume* GetCherenkovRadiator() const { return fCherenkovLogical; }
 
   protected:
     G4LogicalVolume*  fScoringVolume1;
@@ -60,6 +61,7 @@ class B1DetectorConstruction : public G4VUserDetectorConstruction
     G4LogicalVolume*  fScintiLogical2;
     G4LogicalVolume*  fQuartzLogical1;
     G4LogicalVolume*  fQuartzLogical2;
+    G4LogicalVolume*  fCherenkovLogical;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

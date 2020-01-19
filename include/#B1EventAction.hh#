@@ -72,11 +72,7 @@ public:
   }
 
   void AddCherenkovPosition(G4ThreeVector cherenkovEndpoint) {
-    fCherenkovEndpointVector.push_back(cherenkovEndpoint);
-  }
-
-  void AddCherenkovArrivalTime(G4double arrivalTime);
-
+    fCherenkovEndpointVector.push_back(
   void AddEndPosition(std::tuple<G4double, G4double> endPosition) {
     if (fEndPosition == std::make_tuple(1.e6, 1.e6)) fEndPosition = endPosition;
   }

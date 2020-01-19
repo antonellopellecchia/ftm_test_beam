@@ -290,6 +290,33 @@ src/B1EventAction.cc.s:
 	$(MAKE) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/B1EventAction.cc.s
 .PHONY : src/B1EventAction.cc.s
 
+src/B1PhysicsList.o: src/B1PhysicsList.cc.o
+
+.PHONY : src/B1PhysicsList.o
+
+# target to build an object file
+src/B1PhysicsList.cc.o:
+	$(MAKE) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/B1PhysicsList.cc.o
+.PHONY : src/B1PhysicsList.cc.o
+
+src/B1PhysicsList.i: src/B1PhysicsList.cc.i
+
+.PHONY : src/B1PhysicsList.i
+
+# target to preprocess a source file
+src/B1PhysicsList.cc.i:
+	$(MAKE) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/B1PhysicsList.cc.i
+.PHONY : src/B1PhysicsList.cc.i
+
+src/B1PhysicsList.s: src/B1PhysicsList.cc.s
+
+.PHONY : src/B1PhysicsList.s
+
+# target to generate assembly for a file
+src/B1PhysicsList.cc.s:
+	$(MAKE) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/src/B1PhysicsList.cc.s
+.PHONY : src/B1PhysicsList.cc.s
+
 src/B1PrimaryGeneratorAction.o: src/B1PrimaryGeneratorAction.cc.o
 
 .PHONY : src/B1PrimaryGeneratorAction.o
@@ -397,6 +424,9 @@ help:
 	@echo "... src/B1EventAction.o"
 	@echo "... src/B1EventAction.i"
 	@echo "... src/B1EventAction.s"
+	@echo "... src/B1PhysicsList.o"
+	@echo "... src/B1PhysicsList.i"
+	@echo "... src/B1PhysicsList.s"
 	@echo "... src/B1PrimaryGeneratorAction.o"
 	@echo "... src/B1PrimaryGeneratorAction.i"
 	@echo "... src/B1PrimaryGeneratorAction.s"

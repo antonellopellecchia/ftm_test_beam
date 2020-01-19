@@ -36,11 +36,12 @@
 #include <TFile.h> 
 #include <TStyle.h>
 #include <TF1.h>
+#include <TLegend.h>
+#include <TStyle.h>
 
 #include "B1RunAction.hh"
 #include "B1PrimaryGeneratorAction.hh"
 #include "B1DetectorConstruction.hh"
-// #include "B1Run.hh"
 
 #include "G4RunManager.hh"
 #include "G4Run.hh"
@@ -49,6 +50,7 @@
 #include "G4LogicalVolume.hh"
 #include "G4UnitsTable.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4ThreeVector.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -58,6 +60,7 @@ B1RunAction::B1RunAction(G4bool headless)
     fEdep(0.),
     fEdep2(0.),
     fEdepVector(0),
+    fEdepVectorByProcess(),
     fDeviationAngleVector(0),
     fBeginningPositionVector(0),
     fEndPositionVector(0),
@@ -90,7 +93,7 @@ B1RunAction::~B1RunAction()
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B1RunAction::BeginOfRunAction(const G4Run*)
+void B1RunAction::BeginOfRunAction(const G4Run* run)
 { 
   // inform the runManager to save random number seed
   G4RunManager::GetRunManager()->SetRandomNumberStore(false);
@@ -99,6 +102,8 @@ void B1RunAction::BeginOfRunAction(const G4Run*)
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->Reset();
 
+  nOfEvents = run->GetNumberOfEventToBeProcessed();
+  G4cout << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -111,6 +116,8 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
   // Merge accumulables 
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->Merge();
+
+  G4cout << G4endl;
 
   // Compute dose = total energy deposit in a run and its variance
   //
@@ -131,17 +138,66 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     /*
       Store histogram with energy loss distribution in the first scintillator
     */
+    TCanvas *edepCanvas = new TCanvas("c", "c", 800, 600);
     G4double max_edep = *max_element(fEdepVector.begin(),fEdepVector.end());
     G4double min_edep = *min_element(fEdepVector.begin(),fEdepVector.end());
-    TH1F *hEdep = new TH1F("hEdep", "Energy deposit in scintillator 1", 5000, min_edep, max_edep/2);
+    edepCanvas->cd();
+    int nbins = 100;
+    TH1F *hEdep = new TH1F("hEdep", "Energy deposit in scintillator 1", nbins, min_edep, max_edep);
     for (G4double dep:fEdepVector) hEdep->Fill(dep);
+    hEdep->SetStats(false);
     //hEdep->Fit("landau");
+ 
+    TLegend *legend = new TLegend(0.68, 0.69, 0.89, 0.88);
+    legend->SetHeader("Process", "C");
+    legend->AddEntry(hEdep, "Total", "l");
+    
     hEdep->GetXaxis()->SetTitle("Energy deposit [MeV]");
     hEdep->GetYaxis()->SetTitle("Event rate");
-    hEdep->SaveAs("./root/energy_loss.root");
+    hEdep->Draw();
+    legend->Draw();
+    int b1 = 0; //hEdep->FindBin(3.3);
+    int b2 = nbins; //hEdep->FindBin(3.6);
+    // Additional: energy loss by process
+    int iEdep = 0;
+    for (std::map<G4String, std::vector<G4double>>::value_type& edepPair: fEdepVectorByProcess) {
+      G4String process = edepPair.first;
+      std::vector<G4double> edepVector = edepPair.second;
+      const char *hTitle = G4String("hEdep_"+process).c_str();
+
+      TH1F *hEdepByProcess = new TH1F(hTitle, "Energy deposit in scintillator 1", nbins, min_edep, max_edep);
+      for (G4double dep:edepVector) hEdepByProcess->Fill(dep);
+      G4cout << process << ": " << hEdepByProcess->Integral(b1, b2) << ", ";
+      G4cout << "mean: " << hEdepByProcess->GetMean() << ", ";
+      G4cout << "rms: " << hEdepByProcess->GetRMS() << G4endl;
+
+      hEdepByProcess->SetStats(false);
+      hEdepByProcess->SetLineColor(2+iEdep);
+      hEdepByProcess->SetLineWidth(2);
+      legend->AddEntry(hEdepByProcess, process.c_str(), "l");
+      hEdepByProcess->Draw("same");
+      iEdep++;
+    }
+    G4cout << "total" << ": " << hEdep->Integral(b1, b2) << ", ";
+    G4cout << "mean: " << hEdep->GetMean() << ", ";
+    G4cout << "rms: " << hEdep->GetRMS() << G4endl;
+    G4cout << G4endl;
+    
+    for (std::map<G4String, G4int>::value_type& countPair: fDepositCount) {
+      G4String process = countPair.first;
+      G4double count = countPair.second;
+      G4cout << "Process: " << process << ", ";
+      G4cout << "n. deposits " << count << G4endl;      
+    }
+    G4cout << G4endl;
+
+    edepCanvas->SetLogy();
+    edepCanvas->SetGridx();
+    edepCanvas->SetGridy();
+    edepCanvas->SaveAs("./root/energy_loss.root");
     G4double meanScintillatorEdep = hEdep->GetMean();
     G4double rmsScintillatorEdep = hEdep->GetRMS();
-
+        
   
     /*
       Store histogram with deviation angle when hitting the second scintillator
@@ -201,9 +257,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     positionCanvas->Divide(2, 1);
 
     positionCanvas->cd(1);
-    //G4double max_r0 = *max_element(fBeginningPositionVector.begin(),fBeginningPositionVector.end());
-    //G4double min_r0 = *min_element(fBeginningPositionVector.begin(),fBeginningPositionVector.end());
-    TH1F *hBeginningPosition = new TH1F("hBeginningPosition", "Beginning position", 5000, 0, 10.*mm);
+    TH1F *hBeginningPosition = new TH1F("hBeginningPosition", "Beginning position", 1000, 0, 10.*mm);
     for (auto beginningPosition:fBeginningPositionVector) {
       G4double x = std::get<0>(beginningPosition);
       G4double y = std::get<1>(beginningPosition);
@@ -215,9 +269,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     hBeginningPosition->SaveAs("./root/beginning_position.root");
 
     positionCanvas->cd(2);
-    //G4double max_r1 = *max_element(fEndPositionVector.begin(),fEndPositionVector.end());
-    //G4double min_r1 = *min_element(fEndPositionVector.begin(),fEndPositionVector.end());
-    TH1F *hEndPosition = new TH1F("hEndPosition", "End position", 5000, 0, 10.*mm);
+    TH1F *hEndPosition = new TH1F("hEndPosition", "End position", 1000, 0, 10.*mm);
     for (auto endPosition:fEndPositionVector) {
       G4double x = std::get<0>(endPosition);
       G4double y = std::get<1>(endPosition);
@@ -238,7 +290,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     positionCanvas3d->Divide(2, 1);
 
     positionCanvas3d->cd(1);
-    TH2F *hBeginningPosition3d = new TH2F("hBeginningPosition3d", "Beginning position", 70, -8., 8., 70, -8., 8.);
+    TH2F *hBeginningPosition3d = new TH2F("hBeginningPosition3d", "Beginning position", 80, -8., 8., 80, -8., 8.);
     for (auto beginningPosition:fBeginningPositionVector) {
       G4double x = std::get<0>(beginningPosition);
       G4double y = std::get<1>(beginningPosition);
@@ -251,7 +303,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     hBeginningPosition3d->SaveAs("./root/beginning_position3d.root");
 
     positionCanvas3d->cd(2);
-    TH2F *hEndPosition3d = new TH2F("hEndPosition3d", "End position", 70, -8., 8., 70, -8., 8.);
+    TH2F *hEndPosition3d = new TH2F("hEndPosition3d", "End position", 80, -8., 8., 80, -8., 8.);
     for (auto endPosition:fEndPositionVector) {
       G4double x = std::get<0>(endPosition);
       G4double y = std::get<1>(endPosition);
@@ -268,17 +320,67 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
 
     
     /*
-      Store histogram with energy loss distribution in the first scintillator
+      Store histogram with energy loss distribution in the first quartz window
     */
     G4double max_quartz_edep = *max_element(fQuartzWindow1EdepVector.begin(),fQuartzWindow1EdepVector.end());
     G4double min_quartz_edep = *min_element(fQuartzWindow1EdepVector.begin(),fQuartzWindow1EdepVector.end());
-    TH1F *hQuartz1Edep = new TH1F("hQuartzEdep", "Energy deposit in first quartz window", 5000, min_quartz_edep, max_quartz_edep/2);
+    TH1F *hQuartz1Edep = new TH1F("hQuartzEdep", "Energy deposit in first quartz window", 5000, min_quartz_edep, max_quartz_edep);
     for (G4double dep:fQuartzWindow1EdepVector) hQuartz1Edep->Fill(dep);
     hQuartz1Edep->GetXaxis()->SetTitle("Energy deposit [MeV]");
     hQuartz1Edep->GetYaxis()->SetTitle("Event rate");
     hQuartz1Edep->SaveAs("./root/energy_loss_quartz_window.root");
     G4double meanQuartz1Edep = hQuartz1Edep->GetMean();
     G4double rmsQuartz1Edep = hQuartz1Edep->GetRMS();
+
+
+    /*
+      Store Cherenkov photon profile scatter plot
+    */
+    TCanvas *cherenkovProfileCanvas = new TCanvas("c", "c", 1400, 700);
+    cherenkovProfileCanvas->cd();
+    TGraph *plotCherenkovPosition = new TGraph(fCherenkovEndpointVector.size());
+    for (unsigned long int i=0; i<fCherenkovEndpointVector.size(); i++)
+      plotCherenkovPosition->SetPoint(i, fCherenkovEndpointVector[i].getX(), fCherenkovEndpointVector[i].getY());
+    plotCherenkovPosition->SetTitle("Cherenkov profile");
+    plotCherenkovPosition->GetXaxis()->SetTitle("X position (mm)");
+    plotCherenkovPosition->GetYaxis()->SetTitle("Y position (mm)");
+    plotCherenkovPosition->GetXaxis()->SetLimits(-10., 10.);
+    plotCherenkovPosition->GetYaxis()->SetLimits(-10., 10.);
+    plotCherenkovPosition->GetXaxis()->SetRangeUser(-10., 10.);
+    plotCherenkovPosition->GetYaxis()->SetRangeUser(-10., 10.);
+    plotCherenkovPosition->Draw("ap");
+    plotEndPosition->SaveAs("./root/cherenkov_profile.root");
+
+    /*
+      Store histogram with Cherenkov photons radial position
+    */
+    TCanvas *cherenkovCanvas3d = new TCanvas("c", "c", 1400, 700);
+    cherenkovCanvas3d->cd();
+    TH2F *hCherenkovPosition3d = new TH2F("hCherenkovPosition3d", "Cherenkov position", 80, -8., 8., 80, -8., 8.);
+    for (auto cherenkovPosition:fCherenkovEndpointVector)
+      hCherenkovPosition3d->Fill(cherenkovPosition.getX(), cherenkovPosition.getY());
+    hCherenkovPosition3d->GetXaxis()->SetTitle("X position (mm)");
+    hCherenkovPosition3d->GetYaxis()->SetTitle("Y position (mm)");
+    hCherenkovPosition3d->GetZaxis()->SetTitle("Event rate");
+    hCherenkovPosition3d->Draw("SURF3");
+    positionCanvas3d->SaveAs("./root/cherenkov_position3d.root");
+    
+
+    TCanvas *cherenkovTimesCanvas = new TCanvas("c", "c", 800, 600);
+    cherenkovTimesCanvas->cd();
+    G4double max_cherenkov = *max_element(fCherenkovArrivalTimes.begin(),fCherenkovArrivalTimes.end());
+    G4double min_cherenkov = *min_element(fCherenkovArrivalTimes.begin(),fCherenkovArrivalTimes.end());
+    TH1F *hCherenkovTimes = new TH1F("hCherenkovTimes", "Cherenkov photon arrival times", 500, min_cherenkov, max_cherenkov);
+    for (G4double time:fCherenkovArrivalTimes) hCherenkovTimes->Fill(time);
+    hCherenkovTimes->SetStats(false);
+    hCherenkovTimes->GetXaxis()->SetTitle("Arrival time [ns]");
+    hCherenkovTimes->GetYaxis()->SetTitle("Event rate");
+    hCherenkovTimes->Draw();
+    cherenkovTimesCanvas->SetGridx();
+    cherenkovTimesCanvas->SetGridy();
+    cherenkovTimesCanvas->SaveAs("./root/cherenkov_arrival_times.root");
+    cherenkovTimesCanvas->SaveAs("./root/cherenkov_arrival_times.eps");
+    
 
     G4cout << G4endl;
     G4cout << "----------------------------------------------------" << G4endl;
@@ -339,6 +441,22 @@ void B1RunAction::AddEdep(G4double edep)
   fEdepVector.push_back(edep);
 }
 
+void B1RunAction::AddEdepByProcess(std::map<G4String, G4double> edepByProcess) {
+  for (std::map<G4String, G4double>::value_type& edepPair: edepByProcess) {
+    G4String process = edepPair.first;
+    G4double edep = edepPair.second;
+    fEdepVectorByProcess[process].push_back(edep);
+  }
+}
+
+void B1RunAction::AddDepositCount(std::map<G4String, G4int> depositCount) {
+  for (std::map<G4String, G4int>::value_type& countPair: depositCount) {
+    G4String process = countPair.first;
+    G4double count = countPair.second;
+    fDepositCount[process] += count;
+  }
+}
+
 void B1RunAction::AddDeviationAngle(G4double deviationAngle)
 {
   if (deviationAngle != -10.) fDeviationAngleVector.push_back(deviationAngle);
@@ -361,6 +479,15 @@ void B1RunAction::AddEndPosition (std::tuple<G4double, G4double> endPosition) {
 void B1RunAction::AddQuartzWindow1Edep (G4double edep) {
   fQuartzWindow1EdepVector.push_back(edep);
 }
+
+void B1RunAction::AddCherenkovEndpointVector (std::vector<G4ThreeVector> cherenkovEndpoints) {
+  for (auto endpoint: cherenkovEndpoints) fCherenkovEndpointVector.push_back(endpoint);
+}
+
+void B1RunAction::AddCherenkovArrivalTime(G4double arrivalTime) {
+  fCherenkovArrivalTimes.push_back(arrivalTime);
+}
+
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

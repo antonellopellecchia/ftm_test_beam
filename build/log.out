@@ -1,0 +1,1515 @@
+
+**************************************************************
+ Geant4 version Name: geant4-10-05-patch-01    (17-April-2019)
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+<<< Reference Physics List QBBC 
+Visualization Manager instantiating with verbosity "warnings (3)"...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Current available graphics systems are:
+ASCIITree (ATree)
+DAWNFILE (DAWNFILE)
+G4HepRep (HepRepXML)
+G4HepRepFile (HepRepFile)
+RayTracer (RayTracer)
+VRML1FILE (VRML1FILE)
+VRML2FILE (VRML2FILE)
+gMocrenFile (gMocrenFile)
+OpenGLImmediateQt (OGLIQt, OGLI)
+OpenGLStoredQt (OGLSQt, OGL, OGLS)
+OpenGLImmediateX (OGLIX, OGLIQt_FALLBACK)
+OpenGLStoredX (OGLSX, OGLSQt_FALLBACK)
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByAttribute
+  drawByCharge
+  drawByOriginVolume
+  drawByParticleID
+  drawByEncounteredVolume
+
+Registered filter factories:
+  attributeFilter
+  chargeFilter
+  originVolumeFilter
+  particleFilter
+  encounteredVolumeFilter
+
+You have successfully registered the following user vis actions.
+Run Duration User Vis Actions: none
+End of Event User Vis Actions: none
+End of Run User Vis Actions: none
+
+Some /vis commands (optionally) take a string to specify colour.
+"/vis/list" to see available colours.
+/run/verbose 1
+/event/verbose 0
+/tracking/verbose 0
+/run/initialize
+
+The materials defined are: 
+
+
+***** Table : Nb of materials = 3 *****
+
+ Material:   G4_AIR    density:  1.205 mg/cm3  RadL: 303.921 m    Nucl.Int.Length: 710.095 m  
+                       Imean:  85.700 eV   temperature: 293.15 K  pressure:   1.00 atm
+
+   --->  Element: C (C)   Z =  6.0   N =    12   A = 12.011 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance: 98.930 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:  1.070 %
+          ElmMassFraction:   0.01 %  ElmAbundance   0.02 % 
+
+   --->  Element: N (N)   Z =  7.0   N =    14   A = 14.007 g/mole
+         --->  Isotope:   N14   Z =  7   N =  14   A =  14.00 g/mole   abundance: 99.632 %
+         --->  Isotope:   N15   Z =  7   N =  15   A =  15.00 g/mole   abundance:  0.368 %
+          ElmMassFraction:  75.53 %  ElmAbundance  78.44 % 
+
+   --->  Element: O (O)   Z =  8.0   N =    16   A = 15.999 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance: 99.757 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:  0.038 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:  0.205 %
+          ElmMassFraction:  23.18 %  ElmAbundance  21.07 % 
+
+   --->  Element: Ar (Ar)   Z = 18.0   N =    40   A = 39.948 g/mole
+         --->  Isotope:  Ar36   Z = 18   N =  36   A =  35.97 g/mole   abundance:  0.337 %
+         --->  Isotope:  Ar38   Z = 18   N =  38   A =  37.96 g/mole   abundance:  0.063 %
+         --->  Isotope:  Ar40   Z = 18   N =  40   A =  39.96 g/mole   abundance: 99.600 %
+          ElmMassFraction:   1.28 %  ElmAbundance   0.47 % 
+
+
+ Material:    G4_Ar    density:  1.662 mg/cm3  RadL: 117.621 m    Nucl.Int.Length: 719.888 m  
+                       Imean: 188.000 eV   temperature: 293.15 K  pressure:   1.00 atm
+
+   --->  Element: Ar (Ar)   Z = 18.0   N =    40   A = 39.948 g/mole
+         --->  Isotope:  Ar36   Z = 18   N =  36   A =  35.97 g/mole   abundance:  0.337 %
+         --->  Isotope:  Ar38   Z = 18   N =  38   A =  37.96 g/mole   abundance:  0.063 %
+         --->  Isotope:  Ar40   Z = 18   N =  40   A =  39.96 g/mole   abundance: 99.600 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+
+ Material: G4_PLASTIC_SC_VINYLTOLUENE    density:  1.032 g/cm3   RadL:  42.544 cm   Nucl.Int.Length:  69.969 cm 
+                       Imean:  64.700 eV   temperature: 293.15 K  pressure:   1.00 atm
+
+   --->  Element: C (C)   Z =  6.0   N =    12   A = 12.011 g/mole
+         --->  Isotope:   C12   Z =  6   N =  12   A =  12.00 g/mole   abundance: 98.930 %
+         --->  Isotope:   C13   Z =  6   N =  13   A =  13.00 g/mole   abundance:  1.070 %
+          ElmMassFraction:  91.47 %  ElmAbundance  47.37 % 
+
+   --->  Element: H (H)   Z =  1.0   N =     1   A =  1.008 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance: 99.989 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:  0.011 %
+          ElmMassFraction:   8.53 %  ElmAbundance  52.63 % 
+
+
+
+Checking overlaps for volume Envelope ... OK! 
+Checking overlaps for volume ScintiPhysical1 ... OK! 
+Checking overlaps for volume ScintiPhysical2 ... OK! 
+Checking overlaps for volume QuartzPhysical1 ... OK! 
+Checking overlaps for volume QuartzPhysical2 ... OK! 
+### Adding tracking cuts for neutron  TimeCut(ns)= 10000  KinEnergyCut(MeV)= 0
+/run/beamOn 100
+
+phot:  for gamma SubType=12 BuildTable=0
+      LambdaPrime table from 200 keV to 100 TeV in 61 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+ LivermorePhElectric : Emin=    0 eV  Emax=  100 TeV  SauterGavrila Fluo
+
+compt:  for gamma SubType=13 BuildTable=1
+      Lambda table from 100 eV  to 1 MeV, 7 bins/decade, spline: 1
+      LambdaPrime table from 1 MeV to 100 TeV in 56 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Klein-Nishina : Emin=    0 eV  Emax=  100 TeV
+
+conv:  for gamma SubType=14 BuildTable=1
+      Lambda table from 1.022 MeV to 100 TeV, 18 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        BetheHeitler : Emin=    0 eV  Emax=   80 GeV  ModifiedTsai
+     BetheHeitlerLPM : Emin=   80 GeV Emax=  100 TeV  ModifiedTsai
+
+Rayl:  for gamma SubType=11 BuildTable=1
+      Lambda table from 100 eV  to 100 keV, 7 bins/decade, spline: 0
+      LambdaPrime table from 100 keV to 100 TeV in 63 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   LivermoreRayleigh : Emin=    0 eV  Emax=  100 TeV  CullenGenerator
+
+msc:  for e-  SubType= 10
+      RangeFactor= 0.04, stepLimType: 1, latDisp: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+
+eIoni:  for e-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+CoulombScat:  for e-, integral:1  SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for e+  SubType= 10
+      RangeFactor= 0.04, stepLimType: 1, latDisp: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+
+eIoni:  for e+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+annihil:  for e+, integral:1  SubType=5 BuildTable=0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for e+, integral:1  SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for proton  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+hIoni:  for proton  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for proton  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV
+
+hPairProd:  for proton  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for proton, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for GenericIon  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
+
+ionIoni:  for GenericIon  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
+      Stopping Power data for 17 ion/material pairs
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+msc:  for alpha  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+ionIoni:  for alpha  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=7.9452 MeV
+          BetheBloch : Emin=7.9452 MeV Emax=  100 TeV
+
+msc:  for anti_proton  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+hIoni:  for anti_proton  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for anti_proton  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV
+
+hPairProd:  for anti_proton  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for anti_proton, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon+  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+hIoni:  for kaon+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV
+
+hPairProd:  for kaon+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for kaon+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon-  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+hIoni:  for kaon-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV
+
+hPairProd:  for kaon-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for kaon-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of kaon+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu+  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0, polarAngLim(deg)= 180
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+muIoni:  for mu+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=  200 keV
+          BetheBloch : Emin=  200 keV Emax=    1 GeV
+        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
+
+muBrems:  for mu+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV
+
+muPairProd:  for mu+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for mu+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu-  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0, polarAngLim(deg)= 180
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+muIoni:  for mu-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=  200 keV
+          BetheBloch : Emin=  200 keV Emax=    1 GeV
+        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
+
+muBrems:  for mu-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV
+
+muPairProd:  for mu-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for mu-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of mu+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi+  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+hIoni:  for pi+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV
+
+hPairProd:  for pi+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for pi+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi-  SubType= 10
+      RangeFactor= 0.2, stepLimType: 0, latDisp: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+
+hIoni:  for pi-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV
+
+hPairProd:  for pi-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for pi-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of pi+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+====================================================================
+                  HADRONIC PROCESSES SUMMARY (verbose level 1)
+
+---------------------------------------------------
+                           Hadronic Processes for neutron
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronElasticXS: 0 eV  ---> 100 TeV
+
+  Process: neutronInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 1 GeV ---> 5 GeV
+        Model:            Binary Cascade: 0 eV  ---> 1.5 GeV
+     Cr_sctns:      G4NeutronInelasticXS: 0 eV  ---> 100 TeV
+
+  Process: nCapture
+        Model:               nRadCapture: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronCaptureXS: 0 eV  ---> 100 TeV
+
+  Process: nKiller
+
+---------------------------------------------------
+                           Hadronic Processes for GenericIon
+
+  Process: ionInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+  Process: ionElastic
+        Model:          NNDiffuseElastic: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: He3Inelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: alphaInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: anti_He3Inelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: anti_alphaInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: anti_deuteronInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_neutron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: anti_neutronInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_proton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: anti_protonInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: anti_tritonInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: dInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for e+
+
+  Process: positronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for e-
+
+  Process: electronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for gamma
+
+  Process: photonNuclear
+        Model:            BertiniCascade: 0 eV  ---> 3.5 GeV
+        Model:           TheoFSGenerator: 3 GeV ---> 100 TeV
+     Cr_sctns:            PhotoNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon+
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: kaon+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 5 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: kaon-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 5 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: lambdaInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 5 GeV
+     Cr_sctns:   ChipsHyperonInelasticXS: 0 eV  ---> 100 TeV
+     Cr_sctns:          GheishaInelastic: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for mu+
+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for mu-
+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+
+  Process: muMinusCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for pi+
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 1.0001 GeV
+        Model:           hElasticGlauber: 1 GeV ---> 100 TeV
+     Cr_sctns:       Barashenkov-Glauber: 0 eV  ---> 100 TeV
+
+  Process: pi+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 5 GeV
+     Cr_sctns: Barashenkov-Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for pi-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 1.0001 GeV
+        Model:           hElasticGlauber: 1 GeV ---> 100 TeV
+     Cr_sctns:       Barashenkov-Glauber: 0 eV  ---> 100 TeV
+
+  Process: pi-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 5 GeV
+     Cr_sctns: Barashenkov-Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for proton
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:       Barashenkov-Glauber: 0 eV  ---> 100 TeV
+
+  Process: protonInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 1 GeV ---> 5 GeV
+        Model:            Binary Cascade: 0 eV  ---> 1.5 GeV
+     Cr_sctns:       Barashenkov-Glauber: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 100 TeV
+     Cr_sctns:            GheishaElastic: 0 eV  ---> 100 TeV
+
+  Process: tInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 4 GeV/n
+        Model:                      FTFP: 2 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 eV  ---> 100 TeV
+
+================================================================
+
+========= Table of registered couples ==============================
+
+Index : 0     used in the geometry : Yes
+ Material : G4_AIR
+ Range cuts        :  gamma  700 um     e-  700 um     e+  700 um  proton 700 um 
+ Energy thresholds :  gamma  990 eV     e-  990 eV     e+  990 eV  proton 70 keV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 1     used in the geometry : Yes
+ Material : G4_PLASTIC_SC_VINYLTOLUENE
+ Range cuts        :  gamma  700 um     e-  700 um     e+  700 um  proton 700 um 
+ Energy thresholds :  gamma  2.09434 keV    e-  281.891 keV    e+  276.265 keV proton 70 keV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 2     used in the geometry : Yes
+ Material : quartz
+ Range cuts        :  gamma  700 um     e-  700 um     e+  700 um  proton 700 um 
+ Energy thresholds :  gamma  4.72262 keV    e-  419.056 keV    e+  402.496 keV proton 70 keV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+====================================================================
+
+### Run 0 starts.
+Process: Transportation, deposit (MeV): 3.12657, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.82576, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 1.149
+	Total secondary energy (MeV): 1.149
+Process: Transportation, deposit (MeV): 0.81338, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.433971, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.794024
+	Total secondary energy (MeV): 0.794024
+Process: Transportation, deposit (MeV): 2.88525, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.44651, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 2.10893
+	Total secondary energy (MeV): 2.10893
+Process: Transportation, deposit (MeV): 1.37355, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 2.52207, n. secondaries: 1
+	Particle type: e-, energy (MeV): 4.72239
+	Total secondary energy (MeV): 4.72239
+Process: Transportation, deposit (MeV): 0.58557, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.0366134, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.820265
+	Total secondary energy (MeV): 0.820265
+Process: eBrem, deposit (MeV): 0.674968, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0759783
+	Total secondary energy (MeV): 0.0759783
+Process: Transportation, deposit (MeV): 2.33384, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.481379, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.103742
+	Total secondary energy (MeV): 0.103742
+Process: eBrem, deposit (MeV): 1.13513, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 2.27716
+	Total secondary energy (MeV): 2.27716
+Process: Transportation, deposit (MeV): 1.66968, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.82337, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.764165
+	Total secondary energy (MeV): 0.764165
+Process: Transportation, deposit (MeV): 1.78076, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.71675, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.323469, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0169341
+	Total secondary energy (MeV): 0.0169341
+Process: Transportation, deposit (MeV): 3.02795, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.7891, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.104888
+	Total secondary energy (MeV): 0.104888
+Process: Transportation, deposit (MeV): 0.701987, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.54683, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.45021, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.31295, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 20.4108
+	Total secondary energy (MeV): 20.4108
+Process: eIoni, deposit (MeV): 0.816953, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.885502
+	Total secondary energy (MeV): 0.885502
+Process: Transportation, deposit (MeV): 0.278097, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.67977, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 76.7235
+	Total secondary energy (MeV): 76.7235
+Process: Transportation, deposit (MeV): 1.74296, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.92427, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0233045
+	Total secondary energy (MeV): 0.0233045
+Process: Transportation, deposit (MeV): 0.456104, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.401363, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 2.12806
+	Total secondary energy (MeV): 2.12806
+Process: eIoni, deposit (MeV): 1.76254, n. secondaries: 1
+	Particle type: e-, energy (MeV): 10.1056
+	Total secondary energy (MeV): 10.1056
+Process: eIoni, deposit (MeV): 1.0116, n. secondaries: 1
+	Particle type: e-, energy (MeV): 5.63391
+	Total secondary energy (MeV): 5.63391
+Process: Transportation, deposit (MeV): 0.524701, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.83108, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.00935541
+	Total secondary energy (MeV): 0.00935541
+Process: Transportation, deposit (MeV): 0.772467, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.036265, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 3.70441
+	Total secondary energy (MeV): 3.70441
+Process: eIoni, deposit (MeV): 1.43781, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.819366
+	Total secondary energy (MeV): 0.819366
+Process: eIoni, deposit (MeV): 0.382794, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.839665
+	Total secondary energy (MeV): 0.839665
+Process: Transportation, deposit (MeV): 1.75756, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.42088, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.638451
+	Total secondary energy (MeV): 0.638451
+Process: eBrem, deposit (MeV): 0.721947, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 2.36518
+	Total secondary energy (MeV): 2.36518
+Process: Transportation, deposit (MeV): 0.417001, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.676189, n. secondaries: 1
+	Particle type: e-, energy (MeV): 2.0584
+	Total secondary energy (MeV): 2.0584
+Process: Transportation, deposit (MeV): 2.75288, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.61556, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.457145, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.852165
+	Total secondary energy (MeV): 0.852165
+Process: Transportation, deposit (MeV): 3.23023, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.47237, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 7.28611
+	Total secondary energy (MeV): 7.28611
+Process: Transportation, deposit (MeV): 1.52211, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.50418, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.62052, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 158.224
+	Total secondary energy (MeV): 158.224
+Process: Transportation, deposit (MeV): 0.919313, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.4165, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.26854, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 7.77009
+	Total secondary energy (MeV): 7.77009
+Process: Transportation, deposit (MeV): 2.23875, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.67126, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 33.4817
+	Total secondary energy (MeV): 33.4817
+Process: Transportation, deposit (MeV): 0.666426, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.695013, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 1.98342
+	Total secondary energy (MeV): 1.98342
+Process: Transportation, deposit (MeV): 2.91044, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 2.09554, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.45455
+	Total secondary energy (MeV): 1.45455
+Process: eBrem, deposit (MeV): 0.351122, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.016997
+	Total secondary energy (MeV): 0.016997
+Process: eBrem, deposit (MeV): 0.477728, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 1.46214
+	Total secondary energy (MeV): 1.46214
+Process: Transportation, deposit (MeV): 0.427075, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 3.08342, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 189.956
+	Total secondary energy (MeV): 189.956
+Process: eIoni, deposit (MeV): 0.20521, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.22018
+	Total secondary energy (MeV): 1.22018
+Process: Transportation, deposit (MeV): 0.276506, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.60637, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 347.875
+	Total secondary energy (MeV): 347.875
+Process: Transportation, deposit (MeV): 2.01256, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 3.49206, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.126518
+	Total secondary energy (MeV): 0.126518
+Process: Transportation, deposit (MeV): 0.240066, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.14751, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.67519, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.57958
+	Total secondary energy (MeV): 1.57958
+Process: eIoni, deposit (MeV): 0.930591, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.914316
+	Total secondary energy (MeV): 0.914316
+Process: Transportation, deposit (MeV): 0.994137, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.0679741, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.091436
+	Total secondary energy (MeV): 0.091436
+Process: eIoni, deposit (MeV): 0.0197267, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.910985
+	Total secondary energy (MeV): 0.910985
+Process: eIoni, deposit (MeV): 1.38089, n. secondaries: 1
+	Particle type: e-, energy (MeV): 2.34899
+	Total secondary energy (MeV): 2.34899
+Process: eBrem, deposit (MeV): 1.08871, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.210487
+	Total secondary energy (MeV): 0.210487
+Process: Transportation, deposit (MeV): 0.879894, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.308499, n. secondaries: 1
+	Particle type: e-, energy (MeV): 3.8776
+	Total secondary energy (MeV): 3.8776
+Process: eIoni, deposit (MeV): 2.26387, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.886097
+	Total secondary energy (MeV): 0.886097
+Process: Transportation, deposit (MeV): 0.498028, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.29575, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 16.2903
+	Total secondary energy (MeV): 16.2903
+Process: eBrem, deposit (MeV): 1.33783, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0363339
+	Total secondary energy (MeV): 0.0363339
+Process: Transportation, deposit (MeV): 0.907535, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.52231, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.795874
+	Total secondary energy (MeV): 0.795874
+Process: Transportation, deposit (MeV): 2.05008, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.8883, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 3.95178
+	Total secondary energy (MeV): 3.95178
+Process: eIoni, deposit (MeV): 0.211554, n. secondaries: 1
+	Particle type: e-, energy (MeV): 2.75891
+	Total secondary energy (MeV): 2.75891
+Process: Transportation, deposit (MeV): 0.508017, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.60818, n. secondaries: 0
+	Total secondary energy (MeV): 0
+Process: eBrem, deposit (MeV): 0.617149, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.083907
+	Total secondary energy (MeV): 0.083907
+Process: eIoni, deposit (MeV): 0.623015, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.0159
+	Total secondary energy (MeV): 1.0159
+Process: Transportation, deposit (MeV): 0.343662, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.76344, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 3.54561, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 21.0389
+	Total secondary energy (MeV): 21.0389
+Process: Transportation, deposit (MeV): 0.0288304, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.86824, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 78.8569
+	Total secondary energy (MeV): 78.8569
+Process: eIoni, deposit (MeV): 0.544565, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.03621
+	Total secondary energy (MeV): 1.03621
+Process: Transportation, deposit (MeV): 0.888728, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.44897, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.97065, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 2.76792, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.77568
+	Total secondary energy (MeV): 1.77568
+Process: Transportation, deposit (MeV): 1.23873, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.06476, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 7.98382
+	Total secondary energy (MeV): 7.98382
+Process: Transportation, deposit (MeV): 2.41553, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.942148, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.240812
+	Total secondary energy (MeV): 0.240812
+Process: Transportation, deposit (MeV): 2.74392, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.48888, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.836379, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.82437
+	Total secondary energy (MeV): 1.82437
+Process: Transportation, deposit (MeV): 2.26602, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.974532, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 3.6535
+	Total secondary energy (MeV): 3.6535
+Process: Transportation, deposit (MeV): 2.55616, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 3.43397, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 6.98444
+	Total secondary energy (MeV): 6.98444
+Process: Transportation, deposit (MeV): 0.126987, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.31067, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.15382, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 29.365
+	Total secondary energy (MeV): 29.365
+Process: eBrem, deposit (MeV): 0.080874, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 26.6725
+	Total secondary energy (MeV): 26.6725
+Process: eIoni, deposit (MeV): 0.255134, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.49039
+	Total secondary energy (MeV): 1.49039
+Process: Transportation, deposit (MeV): 1.74187, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.54224, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.43598
+	Total secondary energy (MeV): 1.43598
+Process: Transportation, deposit (MeV): 2.78513, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.49058, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.998776
+	Total secondary energy (MeV): 0.998776
+Process: eIoni, deposit (MeV): 0.712019, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.52178
+	Total secondary energy (MeV): 1.52178
+Process: Transportation, deposit (MeV): 1.43238, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.23789, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.967464
+	Total secondary energy (MeV): 0.967464
+Process: Transportation, deposit (MeV): 2.29761, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.64371, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.82676
+	Total secondary energy (MeV): 0.82676
+Process: eBrem, deposit (MeV): 1.43054, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.671469
+	Total secondary energy (MeV): 0.671469
+Process: Transportation, deposit (MeV): 0.345154, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.71375, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.931723
+	Total secondary energy (MeV): 0.931723
+Process: Transportation, deposit (MeV): 1.83052, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.0556249, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0493312
+	Total secondary energy (MeV): 0.0493312
+Process: eBrem, deposit (MeV): 0.800945, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 11.1381
+	Total secondary energy (MeV): 11.1381
+Process: eBrem, deposit (MeV): 1.44109, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 1.26666
+	Total secondary energy (MeV): 1.26666
+Process: eIoni, deposit (MeV): 0.319685, n. secondaries: 1
+	Particle type: e-, energy (MeV): 2.19343
+	Total secondary energy (MeV): 2.19343
+Process: Transportation, deposit (MeV): 0.616596, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.230726, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0536959
+	Total secondary energy (MeV): 0.0536959
+Process: Transportation, deposit (MeV): 3.10779, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.57906, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.481823, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.934887
+	Total secondary energy (MeV): 0.934887
+Process: eBrem, deposit (MeV): 2.64526, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 20.1521
+	Total secondary energy (MeV): 20.1521
+Process: Transportation, deposit (MeV): 0.514755, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.80951, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.228375
+	Total secondary energy (MeV): 0.228375
+Process: Transportation, deposit (MeV): 0.956391, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.50216, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.45808, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.48976, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.5558, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.117076
+	Total secondary energy (MeV): 0.117076
+Process: eBrem, deposit (MeV): 0.654921, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 8.50711
+	Total secondary energy (MeV): 8.50711
+Process: eIoni, deposit (MeV): 1.29169, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.13423
+	Total secondary energy (MeV): 1.13423
+Process: eIoni, deposit (MeV): 0.124053, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.86811
+	Total secondary energy (MeV): 0.86811
+Process: Transportation, deposit (MeV): 0.396257, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.33742, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.73617, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0245647
+	Total secondary energy (MeV): 0.0245647
+Process: Transportation, deposit (MeV): 0.579729, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.50071, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 2.05592, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.929418
+	Total secondary energy (MeV): 0.929418
+Process: eBrem, deposit (MeV): 0.904148, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 158.619
+	Total secondary energy (MeV): 158.619
+Process: eBrem, deposit (MeV): 0.050871, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 15.2367
+	Total secondary energy (MeV): 15.2367
+Process: Transportation, deposit (MeV): 0.52099, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.21912, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 68.2329
+	Total secondary energy (MeV): 68.2329
+Process: Transportation, deposit (MeV): 1.31541, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.0427942, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.1063
+	Total secondary energy (MeV): 1.1063
+Process: eBrem, deposit (MeV): 0.344047, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 1.11318
+	Total secondary energy (MeV): 1.11318
+Process: Transportation, deposit (MeV): 2.76019, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.60617, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.682489
+	Total secondary energy (MeV): 0.682489
+Process: Transportation, deposit (MeV): 0.522807, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 2.64089, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.793925
+	Total secondary energy (MeV): 0.793925
+Process: Transportation, deposit (MeV): 0.735988, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.08555, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 2.94988
+	Total secondary energy (MeV): 2.94988
+Process: Transportation, deposit (MeV): 1.36098, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.44949, n. secondaries: 1
+	Particle type: e-, energy (MeV): 105.012
+	Total secondary energy (MeV): 105.012
+Process: Transportation, deposit (MeV): 2.32546, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.875845, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0829352
+	Total secondary energy (MeV): 0.0829352
+Process: Transportation, deposit (MeV): 2.51358, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.56718, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 2.68831, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.885918
+	Total secondary energy (MeV): 0.885918
+Process: Transportation, deposit (MeV): 0.654554, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.31332, n. secondaries: 1
+	Particle type: e-, energy (MeV): 17.9881
+	Total secondary energy (MeV): 17.9881
+Process: eIoni, deposit (MeV): 2.01764, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.811561
+	Total secondary energy (MeV): 0.811561
+Process: eIoni, deposit (MeV): 0.398352, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.00586
+	Total secondary energy (MeV): 1.00586
+Process: Transportation, deposit (MeV): 0.48624, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.407306, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 2.62644
+	Total secondary energy (MeV): 2.62644
+Process: eIoni, deposit (MeV): 0.619208, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.18416
+	Total secondary energy (MeV): 1.18416
+Process: eBrem, deposit (MeV): 2.19771, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 5.48093
+	Total secondary energy (MeV): 5.48093
+Process: eBrem, deposit (MeV): 0.455103, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 10.6843
+	Total secondary energy (MeV): 10.6843
+Process: Transportation, deposit (MeV): 0.0864827, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 1.18608, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.968794
+	Total secondary energy (MeV): 0.968794
+Process: Transportation, deposit (MeV): 2.68826, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 2.2385, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.40719
+	Total secondary energy (MeV): 1.40719
+Process: eBrem, deposit (MeV): 0.186698, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 262.119
+	Total secondary energy (MeV): 262.119
+Process: eBrem, deposit (MeV): 0.0949196, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 1.42448
+	Total secondary energy (MeV): 1.42448
+Process: Transportation, deposit (MeV): 0.759929, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.60049, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 7.14866
+	Total secondary energy (MeV): 7.14866
+Process: Transportation, deposit (MeV): 1.22498, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 0.150557, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 24.8125
+	Total secondary energy (MeV): 24.8125
+Process: eBrem, deposit (MeV): 0.652124, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 353.312
+	Total secondary energy (MeV): 353.312
+Process: Transportation, deposit (MeV): 2.86532, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.52623, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 22.7911
+	Total secondary energy (MeV): 22.7911
+Process: Transportation, deposit (MeV): 0.576705, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.32979, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.26614, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.6538, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.83173, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0293055
+	Total secondary energy (MeV): 0.0293055
+Process: Transportation, deposit (MeV): 1.61432, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.61134, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.825732, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.63602
+	Total secondary energy (MeV): 1.63602
+Process: eBrem, deposit (MeV): 1.2192, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.0352904
+	Total secondary energy (MeV): 0.0352904
+Process: eIoni, deposit (MeV): 0.0263411, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.86542
+	Total secondary energy (MeV): 0.86542
+Process: eBrem, deposit (MeV): 1.1211, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.899774
+	Total secondary energy (MeV): 0.899774
+Process: Transportation, deposit (MeV): 0.235505, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 1.47831, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 19.1167
+	Total secondary energy (MeV): 19.1167
+Process: Transportation, deposit (MeV): 2.23893, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eIoni, deposit (MeV): 0.854419, n. secondaries: 1
+	Particle type: e-, energy (MeV): 1.06055
+	Total secondary energy (MeV): 1.06055
+Process: eBrem, deposit (MeV): 0.646294, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 0.979578
+	Total secondary energy (MeV): 0.979578
+Process: eIoni, deposit (MeV): 1.39029, n. secondaries: 1
+	Particle type: e-, energy (MeV): 0.814727
+	Total secondary energy (MeV): 0.814727
+Process: Transportation, deposit (MeV): 0.567288, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: eBrem, deposit (MeV): 2.54573, n. secondaries: 1
+	Particle type: gamma, energy (MeV): 8.1865
+	Total secondary energy (MeV): 8.1865
+Process: Transportation, deposit (MeV): 0.993595, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+Process: Transportation, deposit (MeV): 3.44271, n. secondaries: 0
+	Total secondary energy (MeV): 0
+--------------------
+ Run terminated.
+Run Summary
+  Number of events processed : 100
+  User=0.020000s Real=0.025283s Sys=0.010000s
+
+
+----------------------------------------------------
+Mean energy loss in scintillator 1 [MeV]: 3.49404 +/- 0.220399
+Mean deviation angle measured at scintillator 2 [degrees]: 0.881131 +/- 0.829237
+Mean energy loss in first quartz window [MeV]: 1.67982 +/- 0.174836
+----------------------------------------------------
+
+
+
+--------------------End of Global Run-----------------------
+ The run consists of 100 e- of 500 MeV
+ Cumulated dose per run, in scoring volume : 755.197 picoGy  rms = 5.05523 picoGy 
+------------------------------------------------------------
+
+Graphics systems deleted.
+Visualization Manager deleting...
+G4 kernel has come to Quit state.
+================== Deleting memory pools ===================
+Number of memory pools allocated: 9; of which, static: 0
+Dynamic pools deleted: 9 / Total memory freed: 0.036 MB
+============================================================
+RunManagerKernel is deleted. Good bye :)

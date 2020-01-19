@@ -32,6 +32,7 @@
 
 #include "G4UserRunAction.hh"
 #include "G4Accumulable.hh"
+#include "G4ThreeVector.hh"
 #include "globals.hh"
 
 #include <vector>
@@ -55,20 +56,30 @@ public:
   virtual void   EndOfRunAction(const G4Run*);
 
   void AddEdep (G4double edep);
+  void AddEdepByProcess (std::map<G4String, G4double> edepByProcess);
+  void AddDepositCount (std::map<G4String, G4int> depositCount);
   void AddDeviationAngle (G4double deviationAngle);
   void AddBeginningPosition (std::tuple<G4double, G4double> beginningPosition);
   void AddEndPosition (std::tuple<G4double, G4double> endPosition);
   void AddQuartzWindow1Edep(G4double edep);
+  void AddCherenkovEndpointVector(std::vector<G4ThreeVector> cherenkovEndpoints);
+  void AddCherenkovArrivalTime(G4double arrivalTime);
+
+  G4int nOfEvents;
 
 private:
   bool fHeadless;
   G4Accumulable<G4double> fEdep;
   G4Accumulable<G4double> fEdep2;
   std::vector<G4double> fEdepVector;
+  std::map<G4String, std::vector<G4double>> fEdepVectorByProcess;
+  std::map<G4String, G4int> fDepositCount;
   std::vector<G4double> fDeviationAngleVector;
   std::vector<std::tuple<G4double, G4double>> fBeginningPositionVector;
   std::vector<std::tuple<G4double, G4double>> fEndPositionVector;
   std::vector<G4double> fQuartzWindow1EdepVector;
+  std::vector<G4ThreeVector> fCherenkovEndpointVector;
+  std::vector<G4double> fCherenkovArrivalTimes;
 };
 
 #endif

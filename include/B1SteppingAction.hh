@@ -55,6 +55,7 @@ class B1SteppingAction : public G4UserSteppingAction
     G4LogicalVolume* fScoringVolume2;
     G4LogicalVolume* fQuartzWindow1;
     G4LogicalVolume* fQuartzWindow2;
+    G4LogicalVolume* fCherenkovRadiator;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
