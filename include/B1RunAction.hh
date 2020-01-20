@@ -64,6 +64,7 @@ public:
   void AddQuartzWindow1Edep(G4double edep);
   void AddCherenkovEndpointVector(std::vector<G4ThreeVector> cherenkovEndpoints);
   void AddCherenkovArrivalTime(G4double arrivalTime);
+  void AddCherenkovCount(G4int cherenkovCount);
 
   G4int nOfEvents;
 
@@ -80,6 +81,7 @@ private:
   std::vector<G4double> fQuartzWindow1EdepVector;
   std::vector<G4ThreeVector> fCherenkovEndpointVector;
   std::vector<G4double> fCherenkovArrivalTimes;
+  std::vector<G4int> fCherenkovCounts;
 };
 
 #endif

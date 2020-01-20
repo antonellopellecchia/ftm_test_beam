@@ -145,6 +145,16 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
       // store the energy deposited
       G4double edepStep = step->GetTotalEnergyDeposit();
       fEventAction->AddQuartzWindow1Edep(edepStep);
+    } else if (volume == fCherenkovRadiator) {
+      // store number of cherenkov photons produced
+      const std::vector<const G4Track*>* secondaries = step->GetSecondaryInCurrentStep();
+      G4int cherenkovPhotons = 0;
+      for (G4int itr=0; itr<nbsec; itr++) {
+	const G4Track *trk = (*secondaries)[itr];
+	G4String secondaryCreatorProcessName = trk->GetCreatorProcess()->GetProcessName();
+	if (std::string("Cerenkov") == trk->GetCreatorProcess()->GetProcessName().c_str()) cherenkovPhotons++;
+      }
+      fEventAction->AddCherenkovCount(cherenkovPhotons);
     }
   } else {
     G4String creatorProcessName = track->GetCreatorProcess()->GetProcessName();

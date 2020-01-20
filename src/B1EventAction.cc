@@ -43,7 +43,8 @@ B1EventAction::B1EventAction(B1RunAction* runAction)
   fEdepByProcess(),
   fDeviationAngle(-10.),
   fBeginningPosition(std::make_tuple(1.e6, 1.e6)),
-  fEndPosition(std::make_tuple(1.e6, 1.e6))
+  fEndPosition(std::make_tuple(1.e6, 1.e6)),
+  fCherenkovCount(0)
   //fScintillatorHitPosition(0., 0., 0.)
 {} 
 
@@ -64,6 +65,7 @@ void B1EventAction::BeginOfEventAction(const G4Event*)
   fEndPosition = std::make_tuple(1.e6, 1.e6);
   fQuartzWindow1Edep = 0.;
   fCherenkovEndpointVector = {};
+  fCherenkovCount = 0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -78,6 +80,7 @@ void B1EventAction::EndOfEventAction(const G4Event* event)
   fRunAction->AddBeginningPosition(fBeginningPosition);
   fRunAction->AddEndPosition(fEndPosition);
   fRunAction->AddQuartzWindow1Edep(fQuartzWindow1Edep);
+  fRunAction->AddCherenkovCount(fCherenkovCount);
   //fRunAction->AddCherenkovEndpointVector(fCherenkovEndpointVector);
   
   /*G4cout << G4endl;

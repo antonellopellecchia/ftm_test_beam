@@ -64,7 +64,8 @@ B1RunAction::B1RunAction(G4bool headless)
     fDeviationAngleVector(0),
     fBeginningPositionVector(0),
     fEndPositionVector(0),
-    fQuartzWindow1EdepVector(0)
+    fQuartzWindow1EdepVector(0),
+    fCherenkovCount(0)
     //fScintillatorHitPosition(0., 0., 0.)
 {
   fHeadless = headless;
@@ -380,6 +381,21 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     cherenkovTimesCanvas->SetGridy();
     cherenkovTimesCanvas->SaveAs("./root/cherenkov_arrival_times.root");
     cherenkovTimesCanvas->SaveAs("./root/cherenkov_arrival_times.eps");
+
+
+    /*
+      Store histogram with Cherenkov photon counter
+    */
+    TCanvas *cherenkovCountCanvas = new TCanvas("c", "c", 1400, 700);
+    G4double max_cherenkov_count = *max_element(fCherenkovCounts.begin(),fCherenkovCounts.end());
+    G4double min_cherenkov_count = *min_element(fCherenkovCounts.begin(),fCherenkovCounts.end());
+    cherenkovCountCanvas->cd();
+    TH1F *hCherenkovCount = new TH1F("hCherenkovCount", "Cherenkov photons", 500, min_cherenkov_count, max_cherenkov_count);
+    for (auto cherenkovCount:fCherenkovCounts) hCherenkovCount->Fill(cherenkovCount);
+    hCherenkovCount->GetXaxis()->SetTitle("Cherenkov photons");
+    hCherenkovCount->GetYaxis()->SetTitle("Event rate");
+    hCherenkovCount->Draw();
+    cherenkovCountCanvas->SaveAs("./root/cherenkov_count.root");
     
 
     G4cout << G4endl;
@@ -486,6 +502,10 @@ void B1RunAction::AddCherenkovEndpointVector (std::vector<G4ThreeVector> cherenk
 
 void B1RunAction::AddCherenkovArrivalTime(G4double arrivalTime) {
   fCherenkovArrivalTimes.push_back(arrivalTime);
+}
+
+void B1RunAction::AddCherenkovCount(G4int cherenkovCount) {
+  fCherenkovCounts.push_back(cherenkovCount);
 }
 
 

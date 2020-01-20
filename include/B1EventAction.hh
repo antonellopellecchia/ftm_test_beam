@@ -77,6 +77,10 @@ public:
 
   void AddCherenkovArrivalTime(G4double arrivalTime);
 
+  void AddCherenkovCount(G4int stepCherenkovCount) {
+    fCherenkovCount += stepCherenkovCount;
+  }
+
   void AddEndPosition(std::tuple<G4double, G4double> endPosition) {
     if (fEndPosition == std::make_tuple(1.e6, 1.e6)) fEndPosition = endPosition;
   }
