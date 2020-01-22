@@ -65,7 +65,7 @@ B1RunAction::B1RunAction(G4bool headless)
     fBeginningPositionVector(0),
     fEndPositionVector(0),
     fQuartzWindow1EdepVector(0),
-    fCherenkovCount(0)
+    fCherenkovCounts(0)
     //fScintillatorHitPosition(0., 0., 0.)
 {
   fHeadless = headless;

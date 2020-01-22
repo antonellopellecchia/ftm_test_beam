@@ -97,6 +97,7 @@ private:
   std::tuple<G4double, G4double> fEndPosition;
   std::vector<G4ThreeVector>     fCherenkovEndpointVector;
   G4double                       fQuartzWindow1Edep;
+  G4int                          fCherenkovCount;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
