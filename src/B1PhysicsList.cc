@@ -14,7 +14,6 @@
 #include "G4OpticalPhysics.hh"
 #include "G4Cerenkov.hh"
 
-#include "G4DataQuestionaire.hh"
 #include "G4HadronInelasticQBBC.hh"
 #include "G4HadronElasticPhysics.hh"
 #include "G4HadronElasticPhysicsXS.hh"
