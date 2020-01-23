@@ -39,6 +39,8 @@
 #include <TLegend.h>
 #include <TStyle.h>
 
+#include "style.cc"
+
 #include "B1RunAction.hh"
 #include "B1PrimaryGeneratorAction.hh"
 #include "B1DetectorConstruction.hh"
@@ -68,6 +70,9 @@ B1RunAction::B1RunAction(G4bool headless)
     fCherenkovCounts(0)
     //fScintillatorHitPosition(0., 0., 0.)
 {
+  setStyle();
+  gROOT->SetStyle("Garfield");
+
   fHeadless = headless;
   // add new units for dose
   // 
