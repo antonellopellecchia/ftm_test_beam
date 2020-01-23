@@ -1,0 +1,11 @@
+universe = vanilla
+executable = /lustrehome/antonellopellecchia/simulations/geant4/ftm_test_beam/job/ftm_test_beam.sh
+output = /lustrehome/antonellopellecchia/simulations/geant4/ftm_test_beam/job/ftm_test_beam.out
+error = /lustrehome/antonellopellecchia/simulations/geant4/ftm_test_beam/job/ftm_test_beam.error
+log = /lustrehome/antonellopellecchia/simulations/geant4/ftm_test_beam/job/ftm_test_beam.log
+initialdir = /lustrehome/antonellopellecchia/simulations/geant4/ftm_test_beam/build/
+notify_user = Antonello.Pellecchia@ba.infn.it
+request_memory = 2 GB
+request_cpus = 1
+rank = Memory
+queue
