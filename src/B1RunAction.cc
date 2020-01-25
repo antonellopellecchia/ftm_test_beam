@@ -174,7 +174,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     hEdep->SetStats(false);
     //hEdep->Fit("landau");
  
-    TLegend *legend = new TLegend(0.68, 0.69, 0.89, 0.88);
+    TLegend *legend = new TLegend(0.68, 0.29, 0.89, 0.48);
     legend->SetHeader("Process", "C");
     legend->AddEntry(hEdep, "Total", "l");
     
