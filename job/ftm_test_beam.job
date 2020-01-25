@@ -5,7 +5,7 @@ error = /lustrehome/antonellopellecchia/simulations/geant4/ftm_test_beam/job/ftm
 log = /lustrehome/antonellopellecchia/simulations/geant4/ftm_test_beam/job/ftm_test_beam.log
 initialdir = /lustrehome/antonellopellecchia/simulations/geant4/ftm_test_beam/build/
 notify_user = Antonello.Pellecchia@ba.infn.it
-request_memory = 8 GB
+request_memory = 16 GB
 request_cpus = 1
 rank = Memory
 queue
