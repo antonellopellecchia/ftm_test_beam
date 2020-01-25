@@ -121,10 +121,11 @@ void B1RunAction::BeginOfRunAction(const G4Run* run)
 
 void B1RunAction::EndOfRunAction(const G4Run* run)
 {
-
-  setStyle();
-  gROOT->SetStyle("Garfield");
-
+  //TStyle *garfieldStyle = setStyle();
+  //gROOT->SetStyle("Garfield");
+  //gROOT->ForceStyle();
+  //gStyle->SetStatBorderSize(0);
+  
   G4String out_dir = G4String("./out/");
   G4String root_out_dir = G4String(out_dir+"root/");
   G4String eps_out_dir = G4String(out_dir+"eps/");
@@ -157,14 +158,17 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
 
   if (fHeadless) {
     G4cout << G4endl;
+    
+    int nbins = 500;
+
     /*
       Store histogram with energy loss distribution in the first scintillator
     */
     TCanvas *edepCanvas = new TCanvas("edepCanvas", "", 800, 600);
+    edepCanvas->UseCurrentStyle();
     G4double max_edep = *max_element(fEdepVector.begin(),fEdepVector.end());
     G4double min_edep = *min_element(fEdepVector.begin(),fEdepVector.end());
     edepCanvas->cd();
-    int nbins = 100;
     TH1F *hEdep = new TH1F("hEdep", "", nbins, min_edep, max_edep);
     for (G4double dep:fEdepVector) hEdep->Fill(dep);
     hEdep->SetStats(false);
@@ -227,8 +231,9 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     G4double max_deviation = *max_element(fDeviationAngleVector.begin(),fDeviationAngleVector.end());
     G4double min_deviation = *min_element(fDeviationAngleVector.begin(),fDeviationAngleVector.end());
     TCanvas *deviationAngleCanvas = new TCanvas("deviationAngleCanvas", "", 800, 600);
+    deviationAngleCanvas->UseCurrentStyle();
     deviationAngleCanvas->cd();
-    TH1F *hDeviationAngles = new TH1F("hDeviationAngles", "", 5000, min_deviation, max_deviation);
+    TH1F *hDeviationAngles = new TH1F("hDeviationAngles", "", nbins, min_deviation, max_deviation);
     for (G4double deviationAngle:fDeviationAngleVector) hDeviationAngles->Fill(deviationAngle);
     hDeviationAngles->GetXaxis()->SetTitle("Deviation angle (radians)");
     hDeviationAngles->GetYaxis()->SetTitle("Event rate");
@@ -248,7 +253,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     TGraph *plotBeginningPosition = new TGraph(fBeginningPositionVector.size());
     for (unsigned long int i=0; i<fBeginningPositionVector.size(); i++)
       plotBeginningPosition->SetPoint(i, std::get<0>(fBeginningPositionVector[i]), std::get<1>(fBeginningPositionVector[i]));
-    plotBeginningPosition->SetTitle("Beginning position");
+    //plotBeginningPosition->SetTitle("Beginning position");
     plotBeginningPosition->GetXaxis()->SetTitle("X position (mm)");
     plotBeginningPosition->GetYaxis()->SetTitle("Y position (mm)");
     plotBeginningPosition->GetXaxis()->SetLimits(-10., 10.);
@@ -263,7 +268,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     TGraph *plotEndPosition = new TGraph(fEndPositionVector.size());
     for (unsigned long int i=0; i<fEndPositionVector.size(); i++)
       plotEndPosition->SetPoint(i, std::get<0>(fEndPositionVector[i]), std::get<1>(fEndPositionVector[i]));
-    plotEndPosition->SetTitle("End position");
+    //plotEndPosition->SetTitle("End position");
     plotEndPosition->GetXaxis()->SetTitle("X position (mm)");
     plotEndPosition->GetYaxis()->SetTitle("Y position (mm)");
     plotEndPosition->GetXaxis()->SetLimits(-10., 10.);
@@ -284,7 +289,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     positionCanvas->Divide(2, 1);
 
     positionCanvas->cd(1);
-    TH1F *hBeginningPosition = new TH1F("hBeginningPosition", "", 1000, 0, 10.*mm);
+    TH1F *hBeginningPosition = new TH1F("hBeginningPosition", "", nbins, 0, 10.*mm);
     for (auto beginningPosition:fBeginningPositionVector) {
       G4double x = std::get<0>(beginningPosition);
       G4double y = std::get<1>(beginningPosition);
@@ -297,7 +302,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     //hBeginningPosition->SaveAs(string(eps_out_dir+"beginning_position.eps").c_str());
 
     positionCanvas->cd(2);
-    TH1F *hEndPosition = new TH1F("hEndPosition", "", 1000, 0, 10.*mm);
+    TH1F *hEndPosition = new TH1F("hEndPosition", "", nbins, 0, 10.*mm);
     for (auto endPosition:fEndPositionVector) {
       G4double x = std::get<0>(endPosition);
       G4double y = std::get<1>(endPosition);
@@ -355,7 +360,7 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     G4double max_quartz_edep = *max_element(fQuartzWindow1EdepVector.begin(),fQuartzWindow1EdepVector.end());
     G4double min_quartz_edep = *min_element(fQuartzWindow1EdepVector.begin(),fQuartzWindow1EdepVector.end());
     TCanvas *edepQuartzCanvas = new TCanvas("edepQuartzCanvas", "", 800, 600);
-    TH1F *hQuartz1Edep = new TH1F("hQuartzEdep", "", 5000, min_quartz_edep, max_quartz_edep);
+    TH1F *hQuartz1Edep = new TH1F("hQuartzEdep", "", nbins, min_quartz_edep, max_quartz_edep);
     for (G4double dep:fQuartzWindow1EdepVector) hQuartz1Edep->Fill(dep);
     hQuartz1Edep->GetXaxis()->SetTitle("Energy deposit [MeV]");
     hQuartz1Edep->GetYaxis()->SetTitle("Event rate");
@@ -389,21 +394,6 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     cherenkovProfileCanvas->SaveAs(string(root_out_dir+"cherenkov_profile.root").c_str());
     cherenkovProfileCanvas->SaveAs(string(eps_out_dir+"cherenkov_profile.eps").c_str());
 
-    TCanvas *cherenkovTimesCanvas = new TCanvas("cherenkovTimesCanvas", "", 800, 600);
-    cherenkovTimesCanvas->cd();
-    G4double max_cherenkov = *max_element(fCherenkovArrivalTimes.begin(),fCherenkovArrivalTimes.end());
-    G4double min_cherenkov = *min_element(fCherenkovArrivalTimes.begin(),fCherenkovArrivalTimes.end());
-    TH1F *hCherenkovTimes = new TH1F("hCherenkovTimes", "", 500, min_cherenkov, max_cherenkov);
-    for (G4double time:fCherenkovArrivalTimes) hCherenkovTimes->Fill(time);
-    hCherenkovTimes->SetStats(false);
-    hCherenkovTimes->GetXaxis()->SetTitle("Arrival time [ns]");
-    hCherenkovTimes->GetYaxis()->SetTitle("Event rate");
-    hCherenkovTimes->Draw();
-    cherenkovTimesCanvas->SetGridx();
-    cherenkovTimesCanvas->SetGridy();
-    cherenkovTimesCanvas->SaveAs(string(root_out_dir+"cherenkov_arrival_times.root").c_str());
-    cherenkovTimesCanvas->SaveAs(string(eps_out_dir+"cherenkov_arrival_times.eps").c_str());
-
     TCanvas *cherenkovCanvas3d = new TCanvas("cherenkovCanvas3d", "", 800, 600);
     cherenkovCanvas3d->cd();
     TH2F *hCherenkovPosition3d = new TH2F("hCherenkovPosition3d", "", 80, -8., 8., 80, -8., 8.);
@@ -416,15 +406,30 @@ void B1RunAction::EndOfRunAction(const G4Run* run)
     cherenkovCanvas3d->SaveAs(string(root_out_dir+"cherenkov_position3d.root").c_str());
     cherenkovCanvas3d->SaveAs(string(eps_out_dir+"cherenkov_position3d.eps").c_str());
     */
+
+    TCanvas *cherenkovTimesCanvas = new TCanvas("cherenkovTimesCanvas", "", 800, 600);
+    cherenkovTimesCanvas->cd();
+    G4double max_cherenkov = *max_element(fCherenkovArrivalTimes.begin(),fCherenkovArrivalTimes.end());
+    G4double min_cherenkov = *min_element(fCherenkovArrivalTimes.begin(),fCherenkovArrivalTimes.end());
+    TH1F *hCherenkovTimes = new TH1F("hCherenkovTimes", "", nbins, min_cherenkov, max_cherenkov);
+    for (G4double time:fCherenkovArrivalTimes) hCherenkovTimes->Fill(time);
+    hCherenkovTimes->SetStats(false);
+    hCherenkovTimes->GetXaxis()->SetTitle("Arrival time [ns]");
+    hCherenkovTimes->GetYaxis()->SetTitle("Event rate");
+    hCherenkovTimes->Draw();
+    cherenkovTimesCanvas->SetGridx();
+    cherenkovTimesCanvas->SetGridy();
+    cherenkovTimesCanvas->SaveAs(string(root_out_dir+"cherenkov_arrival_times.root").c_str());
+    cherenkovTimesCanvas->SaveAs(string(eps_out_dir+"cherenkov_arrival_times.eps").c_str());
     
     /*
       Store histogram with Cherenkov photon counter
     */
-    TCanvas *cherenkovCountCanvas = new TCanvas("cherenkovCountCanvas", "", 1400, 700);
+    TCanvas *cherenkovCountCanvas = new TCanvas("cherenkovCountCanvas", "", 800, 600);
     G4double max_cherenkov_count = *max_element(fCherenkovCounts.begin(),fCherenkovCounts.end());
     G4double min_cherenkov_count = *min_element(fCherenkovCounts.begin(),fCherenkovCounts.end());
     cherenkovCountCanvas->cd();
-    TH1F *hCherenkovCount = new TH1F("hCherenkovCount", "", 500, min_cherenkov_count, max_cherenkov_count);
+    TH1F *hCherenkovCount = new TH1F("hCherenkovCount", "", nbins, min_cherenkov_count, max_cherenkov_count);
     for (auto cherenkovCount:fCherenkovCounts) hCherenkovCount->Fill(cherenkovCount);
     hCherenkovCount->GetXaxis()->SetTitle("Cherenkov photons");
     hCherenkovCount->GetYaxis()->SetTitle("Event rate");

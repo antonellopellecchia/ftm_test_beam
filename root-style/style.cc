@@ -11,7 +11,7 @@
 TStyle *setStyle() {
   TStyle *style = new TStyle("Garfield", "Garfield Style");
   style->Reset();
-  style->SetFillColor(1);
+  /*style->SetFillColor(1);
   style->SetFillStyle(1001);
   style->SetCanvasBorderMode(0);
   style->SetCanvasColor(0);
@@ -56,9 +56,9 @@ TStyle *setStyle() {
   style->SetTitleSize(tsize, "t");
 
   style->SetLegendFont(font);
-  style->SetStatStyle(0);
+  style->SetStatStyle(0);*/
   style->SetStatBorderSize(0);
-  style->SetStatColor(0);
+  /*style->SetStatColor(0);
   style->SetStatFont(font);
   style->SetStatFontSize(tsize);
   style->SetStatX(0.88);
@@ -87,7 +87,7 @@ TStyle *setStyle() {
   style->SetHistLineWidth(lw);
   style->SetFuncWidth(lw);
   style->SetGridWidth(lw);
-  style->SetMarkerSize(1.2);
+  style->SetMarkerSize(1.2);*/
   style->cd();
 
   return style;
