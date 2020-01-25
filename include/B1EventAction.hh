@@ -93,7 +93,7 @@ private:
   std::map<G4String, G4double>   fEdepByProcess;
   std::map<G4String, G4int>      fDepositCount;
   G4double                       fDeviationAngle;
-  std::tuple<G4double, G4int>    fBeginningPosition;
+  std::tuple<G4double, G4double> fBeginningPosition;
   std::tuple<G4double, G4double> fEndPosition;
   std::vector<G4ThreeVector>     fCherenkovEndpointVector;
   G4double                       fQuartzWindow1Edep;

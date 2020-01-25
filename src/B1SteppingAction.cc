@@ -145,8 +145,10 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
       // store the energy deposited
       G4double edepStep = step->GetTotalEnergyDeposit();
       fEventAction->AddQuartzWindow1Edep(edepStep);
+      
     } else if (volume == fCherenkovRadiator) {
       // store number of cherenkov photons produced
+      // in the sapphire radiator
       G4int nbsec = step->GetNumberOfSecondariesInCurrentStep();
       const std::vector<const G4Track*>* secondaries = step->GetSecondaryInCurrentStep();
       G4int cherenkovPhotons = 0;

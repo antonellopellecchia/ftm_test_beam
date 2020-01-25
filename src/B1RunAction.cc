@@ -522,6 +522,8 @@ void B1RunAction::AddBeginningPosition (std::tuple<G4double, G4double> beginning
   if (beginningPosition != std::make_tuple(1.e6, 1.e6)) {
     fBeginningPositionVector.push_back(beginningPosition);
     //G4cout << "Beginning position: " << beginningPosition;
+    //std::cout << "(" << std::get<0>(beginningPosition) << ", " <<
+    //  std::get<1>(beginningPosition) << ")" << std::endl;
   }
 }
 
