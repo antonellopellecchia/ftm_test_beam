@@ -30,12 +30,17 @@
 #ifndef B1RunAction_h
 #define B1RunAction_h 1
 
+#include <TTree.h>
+#include <TH1F.h>
+
 #include "G4UserRunAction.hh"
 #include "G4Accumulable.hh"
 #include "G4ThreeVector.hh"
 #include "globals.hh"
 
 #include <vector>
+
+using namespace std;
 
 class G4Run;
 
@@ -66,22 +71,44 @@ public:
   void AddCherenkovArrivalTime(G4double arrivalTime);
   void AddCherenkovCount(G4int cherenkovCount);
 
+  void FillRunNtuples(G4double energyLossInScintillator,
+		      map<string, G4double> energyLossInScintillatorByProcess,
+		      G4double angularDivergence,
+		      tuple<G4double, G4double> beginningPosition,
+		      tuple<G4double, G4double> endPosition,
+		      G4double energyLossInQuartz,
+		      G4int cherenkovCount);
+
   G4int nOfEvents;
 
 private:
+  TFile *runFile;
+  TTree *runTree;
+  
   bool fHeadless;
   G4Accumulable<G4double> fEdep;
   G4Accumulable<G4double> fEdep2;
-  std::vector<G4double> fEdepVector;
-  std::map<G4String, std::vector<G4double>> fEdepVectorByProcess;
-  std::map<G4String, G4int> fDepositCount;
-  std::vector<G4double> fDeviationAngleVector;
-  std::vector<std::tuple<G4double, G4double>> fBeginningPositionVector;
-  std::vector<std::tuple<G4double, G4double>> fEndPositionVector;
-  std::vector<G4double> fQuartzWindow1EdepVector;
-  std::vector<G4ThreeVector> fCherenkovEndpointVector;
-  std::vector<G4double> fCherenkovArrivalTimes;
-  std::vector<G4int> fCherenkovCounts;
+
+  // variables for ntuples
+  G4double fEnergyLossInScintillator;
+  map<string, G4double> fEnergyLossInScintillatorByProcess;
+  G4double fAngularDivergence;
+  tuple<G4double, G4double> fBeginningPosition;
+  tuple<G4double, G4double> fEndPosition;
+  G4double fEnergyLossInQuartz;
+  G4int fCherenkovCount;
+  TH1F *fCherenkovArrivalTimes;
+  
+  vector<G4double> fEdepVector;
+  map<G4String, vector<G4double>> fEdepVectorByProcess;
+  map<G4String, G4int> fDepositCount;
+  vector<G4double> fDeviationAngleVector;
+  vector<tuple<G4double, G4double>> fBeginningPositionVector;
+  vector<tuple<G4double, G4double>> fEndPositionVector;
+  vector<G4double> fQuartzWindow1EdepVector;
+  vector<G4ThreeVector> fCherenkovEndpointVector;
+  //vector<G4double> fCherenkovArrivalTimes;
+  vector<G4int> fCherenkovCounts;
 };
 
 #endif

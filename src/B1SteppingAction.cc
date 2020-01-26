@@ -134,9 +134,7 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
       G4double y0 = vertexPosition.getY();
       G4double x1 = position.getX();
       G4double y1 = position.getY();
-      std::tuple<G4double, G4double> posBeginning = std::make_tuple(x0, y0);
       std::tuple<G4double, G4double> posEnd = std::make_tuple(x1, y1);
-      fEventAction->AddBeginningPosition(posBeginning);
       fEventAction->AddEndPosition(posEnd);
     
     } else if (volume == fQuartzWindow1) {

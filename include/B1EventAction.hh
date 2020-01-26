@@ -34,7 +34,11 @@
 #include "G4UserEventAction.hh"
 #include "globals.hh"
 
+#include <TH1F.h>
+
 #include <vector>
+
+using namespace std;
 
 class B1RunAction;
 
@@ -68,7 +72,9 @@ public:
   }
   
   void AddBeginningPosition(std::tuple<G4double, G4double> beginningPosition) {
-    if (fBeginningPosition == std::make_tuple(1.e6, 1.e6)) fBeginningPosition = beginningPosition;
+    //if (fBeginningPosition == std::make_tuple(1.e6, 1.e6))
+    fBeginningPosition = beginningPosition;
+    //G4cout << std::get<1>(beginningPosition) << G4endl;
   }
 
   void AddCherenkovPosition(G4ThreeVector cherenkovEndpoint) {
@@ -90,7 +96,7 @@ public:
 private:
   B1RunAction*                   fRunAction;
   G4double                       fEdep;
-  std::map<G4String, G4double>   fEdepByProcess;
+  std::map<string, G4double>     fEdepByProcess;
   std::map<G4String, G4int>      fDepositCount;
   G4double                       fDeviationAngle;
   std::tuple<G4double, G4double> fBeginningPosition;
@@ -98,6 +104,7 @@ private:
   std::vector<G4ThreeVector>     fCherenkovEndpointVector;
   G4double                       fQuartzWindow1Edep;
   G4int                          fCherenkovCount;
+  //TH1F                           *fCherenkovArrivalTimes;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

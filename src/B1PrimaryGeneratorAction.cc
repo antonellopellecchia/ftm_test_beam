@@ -28,6 +28,7 @@
 /// \brief Implementation of the B1PrimaryGeneratorAction class
 
 #include "B1PrimaryGeneratorAction.hh"
+#include "B1EventAction.hh"
 
 #include "G4LogicalVolumeStore.hh"
 #include "G4LogicalVolume.hh"
@@ -41,12 +42,13 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B1PrimaryGeneratorAction::B1PrimaryGeneratorAction()
+B1PrimaryGeneratorAction::B1PrimaryGeneratorAction(B1EventAction *eventAction)
   : G4VUserPrimaryGeneratorAction(),
     fParticleGun(0), 
     fEnvelopeBox(0),
     fScintillatorBox1(0),
-    fElectron(nullptr)
+    fElectron(nullptr),
+    fEventAction(eventAction)
 {
   G4int n_particle = 1;
   fParticleGun  = new G4ParticleGun(n_particle);
@@ -146,6 +148,8 @@ void B1PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   //y0 = r0*sin(theta0);
   x0 = G4RandGauss::shoot(0, beamSigma);
   y0 = G4RandGauss::shoot(0, beamSigma);
+  std::tuple<G4double, G4double> posBeginning = std::make_tuple(x0, y0);
+  fEventAction->AddBeginningPosition(posBeginning);
   fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }

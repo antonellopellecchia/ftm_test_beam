@@ -35,6 +35,7 @@
 #include "globals.hh"
 
 class G4ParticleGun;
+class B1EventAction;
 class G4Event;
 class G4Box;
 
@@ -46,7 +47,7 @@ class G4Box;
 class B1PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
 public:
-  B1PrimaryGeneratorAction();    
+  B1PrimaryGeneratorAction(B1EventAction *eventAction);    
   virtual ~B1PrimaryGeneratorAction();
 
   // method from the base class
@@ -60,6 +61,7 @@ private:
   G4Box* fEnvelopeBox;
   G4Box* fScintillatorBox1;
   G4ParticleDefinition *fElectron;
+  B1EventAction *fEventAction;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

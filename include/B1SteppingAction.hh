@@ -50,7 +50,7 @@ class B1SteppingAction : public G4UserSteppingAction
     virtual void UserSteppingAction(const G4Step*);
 
   private:
-    B1EventAction*  fEventAction;
+    B1EventAction*   fEventAction;
     G4LogicalVolume* fScoringVolume1;
     G4LogicalVolume* fScoringVolume2;
     G4LogicalVolume* fQuartzWindow1;
