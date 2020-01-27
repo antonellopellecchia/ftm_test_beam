@@ -34,6 +34,6 @@ def main(argv):
         #run_file.write('#!/bin/sh/\n\n')
         for job_index in range(1, 10):
             dirname_job = save_job(job_index)
-            run_file.write('condor_submit ' + dirname_job + '/job.job -name ettore\n')
+            run_file.write('condor_submit ' + dirname_job + 'job.job -name ettore\n')
 
 if __name__=='__main__': main(sys.argv)
