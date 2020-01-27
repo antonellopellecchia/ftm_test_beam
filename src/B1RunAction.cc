@@ -84,7 +84,8 @@ B1RunAction::B1RunAction(G4bool headless, string outFilePath)
     fBeginningPosition(0, 0),
     fEndPosition(0, 0),
     fEnergyLossInQuartz(0),
-    fCherenkovCount(0)
+    fCherenkovCount(0),
+    fCherenkovArrivalTimes(0)
     //fScintillatorHitPosition(0., 0., 0.)
 {
   fHeadless = headless;
@@ -107,7 +108,7 @@ B1RunAction::B1RunAction(G4bool headless, string outFilePath)
 
   runFile = new TFile(outFilePath.c_str(), "RECREATE", "File containing simulation output ntuples");
 
-  fCherenkovArrivalTimes = new TH1F("hCherenkovTimes", "", 500, 0., 10.*ns);
+  //fCherenkovArrivalTimes = new TH1F("hCherenkovTimes", "", 5000, 0., 10.*ns);
 
   runTree = new TTree("runTree", "Tree with all run data");
   runTree->Branch("energyLossInScintillator", &fEnergyLossInScintillator, "loss/D");
@@ -118,6 +119,7 @@ B1RunAction::B1RunAction(G4bool headless, string outFilePath)
   runTree->Branch("endPosition", &fEndPosition);
   runTree->Branch("energyLossInQuartz", &fEnergyLossInQuartz, "loss/D");
   runTree->Branch("cherenkovCount", &fCherenkovCount, "count/I");
+  runTree->Branch("cherenkovArrivalTimes", &fCherenkovArrivalTimes);
   //runTree->Branch("cherenkovArrivalTimes", &fCherenkovArrivalTimes);
 }
 
@@ -239,7 +241,8 @@ void B1RunAction::FillRunNtuples(G4double energyLossInScintillator,
 				 tuple<G4double, G4double> beginningPosition,
 				 tuple<G4double, G4double> endPosition,
 				 G4double energyLossInQuartz,
-				 G4int cherenkovCount) {
+				 G4int cherenkovCount,
+				 vector<G4int> cherenkovArrivalTimes) {
   fEnergyLossInScintillator = energyLossInScintillator;
   fEnergyLossInScintillatorByProcess = energyLossInScintillatorByProcess;
   fAngularDivergence = angularDivergence;
@@ -247,7 +250,7 @@ void B1RunAction::FillRunNtuples(G4double energyLossInScintillator,
   fEndPosition = endPosition;
   fEnergyLossInQuartz = energyLossInQuartz;
   fCherenkovCount = cherenkovCount;
-  //fCherenkovArrivalTimes = cherenkovArrivalTimes;
+  fCherenkovArrivalTimes = cherenkovArrivalTimes;
   runTree->Fill();
 }
 
@@ -300,7 +303,7 @@ void B1RunAction::AddCherenkovEndpointVector (std::vector<G4ThreeVector> cherenk
 
 void B1RunAction::AddCherenkovArrivalTime(G4double arrivalTime) {
   //fCherenkovArrivalTimes.push_back(arrivalTime);
-  fCherenkovArrivalTimes->Fill(arrivalTime);
+  //fCherenkovArrivalTimes->Fill(arrivalTime);
 }
 
 void B1RunAction::AddCherenkovCount(G4int cherenkovCount) {

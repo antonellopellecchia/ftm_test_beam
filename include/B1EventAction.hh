@@ -94,17 +94,17 @@ public:
   void AddQuartzWindow1Edep(G4double edep) { fQuartzWindow1Edep += edep; }
 
 private:
-  B1RunAction*                   fRunAction;
-  G4double                       fEdep;
-  std::map<string, G4double>     fEdepByProcess;
-  std::map<G4String, G4int>      fDepositCount;
-  G4double                       fDeviationAngle;
-  std::tuple<G4double, G4double> fBeginningPosition;
-  std::tuple<G4double, G4double> fEndPosition;
-  std::vector<G4ThreeVector>     fCherenkovEndpointVector;
-  G4double                       fQuartzWindow1Edep;
-  G4int                          fCherenkovCount;
-  //TH1F                           *fCherenkovArrivalTimes;
+  B1RunAction*              fRunAction;
+  G4double                  fEdep;
+  map<string, G4double>     fEdepByProcess;
+  map<G4String, G4int>      fDepositCount;
+  G4double                  fDeviationAngle;
+  tuple<G4double, G4double> fBeginningPosition;
+  tuple<G4double, G4double> fEndPosition;
+  vector<G4ThreeVector>     fCherenkovEndpointVector;
+  G4double                  fQuartzWindow1Edep;
+  G4int                     fCherenkovCount;
+  vector<G4int>             fCherenkovArrivalTimes;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

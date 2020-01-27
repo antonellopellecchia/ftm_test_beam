@@ -77,7 +77,8 @@ public:
 		      tuple<G4double, G4double> beginningPosition,
 		      tuple<G4double, G4double> endPosition,
 		      G4double energyLossInQuartz,
-		      G4int cherenkovCount);
+		      G4int cherenkovCount,
+		      vector<G4int> cherenkovArrivalTimes);
 
   G4int nOfEvents;
 
@@ -97,7 +98,7 @@ private:
   tuple<G4double, G4double> fEndPosition;
   G4double fEnergyLossInQuartz;
   G4int fCherenkovCount;
-  TH1F *fCherenkovArrivalTimes;
+  vector<G4int> fCherenkovArrivalTimes;
   
   vector<G4double> fEdepVector;
   map<G4String, vector<G4double>> fEdepVectorByProcess;

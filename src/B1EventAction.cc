@@ -90,7 +90,8 @@ void B1EventAction::EndOfEventAction(const G4Event* event)
   fRunAction->FillRunNtuples(fEdep, fEdepByProcess, fDeviationAngle,
 			     fBeginningPosition, fEndPosition,
 			     fQuartzWindow1Edep,
-			     fCherenkovCount);
+			     fCherenkovCount,
+			     fCherenkovArrivalTimes);
   
   /*G4cout << G4endl;
   G4cout << "Total deposit (MeV): " << fEdep << G4endl;
@@ -104,8 +105,8 @@ void B1EventAction::EndOfEventAction(const G4Event* event)
 }
 
 void B1EventAction::AddCherenkovArrivalTime(G4double arrivalTime) {
-  //fCherenkovArrivalTimes->Fill(arrivalTime);
-  fRunAction->AddCherenkovArrivalTime(arrivalTime);
+  fCherenkovArrivalTimes.push_back(arrivalTime);
+  //fRunAction->AddCherenkovArrivalTime(arrivalTime);
 }
 
 
