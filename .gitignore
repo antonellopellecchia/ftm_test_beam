@@ -1,4 +1,6 @@
 build/
+out/
+job/jobs
 job/*.out
 job/*.log
 job/*.error
