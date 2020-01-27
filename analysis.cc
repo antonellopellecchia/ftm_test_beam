@@ -6,7 +6,7 @@ void analysis() {
   gROOT->SetStyle("Garfield");
   gROOT->ForceStyle();
   
-  TFile *rootFileIn = new TFile("build/out/run1.root");
+  TFile *rootFileIn = new TFile("build/out/run3.root");
   TTree *inTree = nullptr;
   //TTree *inTreeReader = new TTreeReader("T", inTree);
   rootFileIn->GetObject("runTree", inTree);
@@ -30,11 +30,12 @@ void analysis() {
 
   TBranch *branchElossByProcess = inTree->
     GetBranch("energyLossInScintillatorByProcess");
+  //map<string, double> elossByProcess;
   map<string, double> elossByProcess;
   branchElossByProcess->SetAddress(&elossByProcess);
-  branchElossByProcess->GetEvent(0);
-  cout << "Inizio" << endl;
-  cout << branchElossByProcess << endl;
+  branchElossByProcess->GetEvent(100);
+  cout << elossByProcess.size() << endl;
+  /*
   for (map<string, double>::value_type& elossPair:elossByProcess) {
     hElossByProcess[elossPair.first] = new TH1F(string("h"+elossPair.first).c_str(),
 				    "", 200, 0., 10.);
@@ -52,4 +53,5 @@ void analysis() {
     else hElossByProcess[elossPair.first]->Draw();
     i_process++;
   }
+  */
 }

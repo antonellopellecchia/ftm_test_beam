@@ -81,7 +81,9 @@ public:
     fCherenkovEndpointVector.push_back(cherenkovEndpoint);
   }
 
-  void AddCherenkovArrivalTime(G4double arrivalTime);
+  void AddCherenkovArrivalTime(G4double arrivalTime) {
+    fCherenkovArrivalTimes->Fill(arrivalTime);
+  }
 
   void AddCherenkovCount(G4int stepCherenkovCount) {
     fCherenkovCount += stepCherenkovCount;
@@ -104,7 +106,7 @@ private:
   vector<G4ThreeVector>     fCherenkovEndpointVector;
   G4double                  fQuartzWindow1Edep;
   G4int                     fCherenkovCount;
-  vector<G4int>             fCherenkovArrivalTimes;
+  TH1F                     *fCherenkovArrivalTimes;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

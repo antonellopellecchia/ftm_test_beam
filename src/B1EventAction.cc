@@ -65,7 +65,7 @@ void B1EventAction::BeginOfEventAction(const G4Event*)
   fQuartzWindow1Edep = 0.;
   fCherenkovEndpointVector = {};
   fCherenkovCount = 0;
-  //fCherenkovArrivalTimes = new TH1F("hCherenkovTimes", "", 500, 0., 10.*ns);
+  fCherenkovArrivalTimes = new TH1F();//"hCherenkovTimes", "", 500, 0., 2.*ns);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -104,10 +104,10 @@ void B1EventAction::EndOfEventAction(const G4Event* event)
   if (eventID%100 == 0) G4cout << eventID << "/" << fRunAction->nOfEvents << "\t\t" << G4endl;
 }
 
-void B1EventAction::AddCherenkovArrivalTime(G4double arrivalTime) {
-  fCherenkovArrivalTimes.push_back(arrivalTime);
-  //fRunAction->AddCherenkovArrivalTime(arrivalTime);
-}
+//void B1EventAction::AddCherenkovArrivalTime(G4double arrivalTime) {
+//fCherenkovArrivalTimes.push_back(arrivalTime);
+//fRunAction->AddCherenkovArrivalTime(arrivalTime);
+//}
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
