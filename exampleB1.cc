@@ -56,11 +56,16 @@ int main(int argc,char** argv)
   G4UIExecutive* ui = 0;
   bool headless = true;
 
+  string outFilePath = "";
   if (argc == 1) {
     ui = new G4UIExecutive(argc, argv);
     headless = false;
-  } else if (argc == 3 && string("test") == argv[2]) { // headless, but no output
-    headless = false;
+  } else if (argc == 3) {
+    if (string("test") == argv[2]) { // headless, but no output
+      headless = false;
+    } else { // headless, with output file
+      outFilePath = string(argv[2]);
+    }
   }
 
   // Choose the Random engine
@@ -85,7 +90,7 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(physicsList);
     
   // User action initialization
-  runManager->SetUserInitialization(new B1ActionInitialization(headless));
+  runManager->SetUserInitialization(new B1ActionInitialization(headless, outFilePath));
   
   // Initialize visualization
   //

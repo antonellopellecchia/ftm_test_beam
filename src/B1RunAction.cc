@@ -65,7 +65,7 @@ using namespace std;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B1RunAction::B1RunAction(G4bool headless)
+B1RunAction::B1RunAction(G4bool headless, string outFilePath)
   : G4UserRunAction(),
     fHeadless(true),
     fEdep(0.),
@@ -105,7 +105,7 @@ B1RunAction::B1RunAction(G4bool headless)
   accumulableManager->RegisterAccumulable(fEdep);
   accumulableManager->RegisterAccumulable(fEdep2);
 
-  runFile = new TFile("out/run.root", "RECREATE", "File containing run ntuples");
+  runFile = new TFile(outFilePath.c_str(), "RECREATE", "File containing simulation output ntuples");
 
   fCherenkovArrivalTimes = new TH1F("hCherenkovTimes", "", 500, 0., 10.*ns);
 

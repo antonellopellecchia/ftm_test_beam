@@ -35,11 +35,12 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B1ActionInitialization::B1ActionInitialization(G4bool headless)
+B1ActionInitialization::B1ActionInitialization(G4bool headless, std::string outFilePath)
 : G4VUserActionInitialization(),
   fHeadless(true)
 {
   fHeadless = headless;
+  fOutFilePath = outFilePath;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -51,7 +52,7 @@ B1ActionInitialization::~B1ActionInitialization()
 
 void B1ActionInitialization::BuildForMaster() const
 {
-  B1RunAction* runAction = new B1RunAction(fHeadless);
+  B1RunAction* runAction = new B1RunAction(fHeadless, fOutFilePath);
   SetUserAction(runAction);
 }
 
@@ -59,7 +60,7 @@ void B1ActionInitialization::BuildForMaster() const
 
 void B1ActionInitialization::Build() const
 {
-  B1RunAction* runAction = new B1RunAction(fHeadless);
+  B1RunAction* runAction = new B1RunAction(fHeadless, fOutFilePath);
   SetUserAction(runAction);
   
   B1EventAction* eventAction = new B1EventAction(runAction);

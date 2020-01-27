@@ -53,7 +53,7 @@ class G4Run;
 class B1RunAction : public G4UserRunAction
 {
 public:
-  B1RunAction(bool headless);
+  B1RunAction(bool headless, string outFilePath);
   virtual ~B1RunAction();
 
   // virtual G4Run* GenerateRun();

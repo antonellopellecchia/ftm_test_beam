@@ -32,12 +32,14 @@
 
 #include "G4VUserActionInitialization.hh"
 
+#include <string>
+
 /// Action initialization class.
 
 class B1ActionInitialization : public G4VUserActionInitialization
 {
 public:
-  B1ActionInitialization(bool headless);
+  B1ActionInitialization(bool headless, std::string outFilePath);
   virtual ~B1ActionInitialization();
 
   virtual void BuildForMaster() const;
@@ -45,6 +47,7 @@ public:
 
 private:
   bool fHeadless;
+  std::string fOutFilePath;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
