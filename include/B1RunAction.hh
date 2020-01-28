@@ -77,8 +77,7 @@ public:
 		      tuple<G4double, G4double> beginningPosition,
 		      tuple<G4double, G4double> endPosition,
 		      G4double energyLossInQuartz,
-		      G4int cherenkovCount,
-		      TH1F *cherenkovArrivalTimes);
+		      G4int cherenkovCount);
 
   G4int nOfEvents;
 

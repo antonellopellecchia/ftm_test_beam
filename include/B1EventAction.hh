@@ -34,6 +34,8 @@
 #include "G4UserEventAction.hh"
 #include "globals.hh"
 
+#include "B1RunAction.hh"
+
 #include <TH1F.h>
 
 #include <vector>
@@ -82,7 +84,8 @@ public:
   }
 
   void AddCherenkovArrivalTime(G4double arrivalTime) {
-    fCherenkovArrivalTimes->Fill(arrivalTime);
+    //fCherenkovArrivalTimes->Fill(arrivalTime);
+    fRunAction->AddCherenkovArrivalTime(arrivalTime);
   }
 
   void AddCherenkovCount(G4int stepCherenkovCount) {
@@ -106,7 +109,7 @@ private:
   vector<G4ThreeVector>     fCherenkovEndpointVector;
   G4double                  fQuartzWindow1Edep;
   G4int                     fCherenkovCount;
-  TH1F                     *fCherenkovArrivalTimes;
+  //TH1F                     *fCherenkovArrivalTimes;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
