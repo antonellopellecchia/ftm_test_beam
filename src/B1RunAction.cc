@@ -108,7 +108,7 @@ B1RunAction::B1RunAction(G4bool headless, string outFilePath)
 
   runFile = new TFile(outFilePath.c_str(), "RECREATE", "File containing simulation output ntuples");
 
-  fCherenkovArrivalTimes = new TH1F("hCherenkovTimes", "", 5000, 0., 2.*ns);
+  fCherenkovArrivalTimes = new TH1F("hCherenkovTimes", "", 50000, 0., 2.*ns);
 
   runTree = new TTree("runTree", "Tree with all run data");
   runTree->Branch("energyLossInScintillator", &fEnergyLossInScintillator, "loss/D");
