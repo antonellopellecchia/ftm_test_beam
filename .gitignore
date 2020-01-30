@@ -1,5 +1,6 @@
 build/
 out/
+slides/
 job/jobs
 job/*.out
 job/*.log
