@@ -38,12 +38,12 @@ TStyle *setStyle() {
   m_garfieldStyle->SetPadGridY(kTRUE);
 
   const int font = 42;
-  const double tsize = 0.04;
+  const double tsize = 0.035;
   m_garfieldStyle->SetTextFont(font);
   m_garfieldStyle->SetTextSize(tsize);
   m_garfieldStyle->SetTitleStyle(0);
   m_garfieldStyle->SetTitleBorderSize(0);
-  m_garfieldStyle->SetTitleColor(1, "xyz");
+  m_garfieldStyle->SetTitleColor(923, "xyz");
   m_garfieldStyle->SetTitleColor(1, "t");
   m_garfieldStyle->SetTitleFillColor(0);
   m_garfieldStyle->SetTitleFont(font, "xyz");
@@ -66,12 +66,13 @@ TStyle *setStyle() {
   m_garfieldStyle->SetOptStat(111110);
   m_garfieldStyle->SetStatFormat("6.3g");
   m_garfieldStyle->SetLabelFont(font, "xyz");
+  m_garfieldStyle->SetLabelColor(923, "xyz");
   m_garfieldStyle->SetLabelSize(tsize, "xyz");
   m_garfieldStyle->SetLabelOffset(0.01, "xyz");
   m_garfieldStyle->SetOptTitle(0);
   m_garfieldStyle->SetPaperSize(TStyle::kA4);
   m_garfieldStyle->SetFuncWidth(2);
-  m_garfieldStyle->SetHistLineColor(kOrange - 3);
+  m_garfieldStyle->SetHistLineColor(kViolet - 2);
   m_garfieldStyle->SetPalette(1);
   m_garfieldStyle->SetAxisColor(kBlack, "X");
   m_garfieldStyle->SetAxisColor(kBlack, "Y");
