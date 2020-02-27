@@ -12,8 +12,7 @@ TStyle *setStyle() {
   TStyle *m_garfieldStyle = new TStyle("Garfield", "Garfield Style");
 
   m_garfieldStyle->Reset();
-  m_garfieldStyle->SetFillColor(1);
-  m_garfieldStyle->SetFillStyle(1001);
+  //m_garfieldStyle->SetFillStyle(1001);
   m_garfieldStyle->SetCanvasBorderMode(0);
   m_garfieldStyle->SetCanvasColor(0);
   m_garfieldStyle->SetCanvasDefH(600);
@@ -88,6 +87,11 @@ TStyle *setStyle() {
   m_garfieldStyle->SetHistLineWidth(lw);
   m_garfieldStyle->SetFuncWidth(lw);
   m_garfieldStyle->SetGridWidth(lw);
+
+  m_garfieldStyle->SetFillColorAlpha(1, 0.01);
+  m_garfieldStyle->SetFillStyle(4000);
+  m_garfieldStyle->SetFrameFillStyle(4000);
+  
   m_garfieldStyle->cd();
   
   return m_garfieldStyle;

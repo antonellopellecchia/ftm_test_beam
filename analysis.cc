@@ -3,6 +3,7 @@
 void analysis(string path="") {
   TStyle *style = setStyle();
   style->cd();
+  style->SetFillColorAlpha(1, 0.01);
   gROOT->SetStyle("Garfield");
   gROOT->ForceStyle();
 
@@ -147,15 +148,19 @@ void analysis(string path="") {
    
   TCanvas *cElossInScintillator = new TCanvas();
   cElossInScintillator->cd();
+  cElossInScintillator->SetFillColorAlpha(1, 0.01);
   hElossInScintillator->SetXTitle("Energy loss [MeV]");
   hElossInScintillator->Draw();
   text->DrawLatexNDC(.15, .966, "#bf{GEANT4}");
   text->DrawLatexNDC(.48, .966, "Electron in 1 cm vinyltoluene scintillator");
   cElossInScintillator->SaveAs(string(path+"/eps/elossInScintillator.eps").c_str());
   cElossInScintillator->SaveAs(string(path+"/png/elossInScintillator.png").c_str());
+  cElossInScintillator->SaveAs(string(path+"/svg/elossInScintillator.svg").c_str());
+  cElossInScintillator->SaveAs(string(path+"/tex/elossInScintillator.tex").c_str());
 
   TCanvas *cElossByProcess = new TCanvas();
   cElossByProcess->cd();
+  cElossByProcess->SetFillColorAlpha(1, 0.01);
   TLegend *legend = new TLegend(0.66, 0.49, 0.88, 0.92);
   legend->SetHeader("#bf{Process}", "C");
   int i_process = 0;
@@ -176,15 +181,20 @@ void analysis(string path="") {
   text->DrawLatexNDC(.48, .966, "Electron in 1 cm vinyltoluene scintillator");
   cElossByProcess->SaveAs(string(path+"/eps/elossByProcess.eps").c_str());
   cElossByProcess->SaveAs(string(path+"/png/elossByProcess.png").c_str());
+  cElossByProcess->SaveAs(string(path+"/svg/elossByProcess.svg").c_str());
+  cElossByProcess->SaveAs(string(path+"/tex/elossByProcess.tex").c_str());
 
   TCanvas *cAngularDivergence = new TCanvas();
   cAngularDivergence->cd();
+  cAngularDivergence->SetFillColorAlpha(1, 0.01);
   hAngularDivergence->SetXTitle("Angular deviation [rad]");
   hAngularDivergence->Draw();
   text->DrawLatexNDC(.15, .966, "#bf{GEANT4}");
   text->DrawLatexNDC(.48, .966, "Electron in 1 cm vinyltoluene scintillator");
   cAngularDivergence->SaveAs(string(path+"/eps/angularDivergence.eps").c_str());
   cAngularDivergence->SaveAs(string(path+"/png/angularDivergence.png").c_str());
+  cAngularDivergence->SaveAs(string(path+"/svg/angularDivergence.svg").c_str());
+  cAngularDivergence->SaveAs(string(path+"/tex/angularDivergence.tex").c_str());
 
   TCanvas *cElectronPosition = new TCanvas("electronPosition", "", 1200, 1200);
   cElectronPosition->Divide(2, 2);
@@ -224,33 +234,45 @@ void analysis(string path="") {
   //text->DrawLatexNDC(.15, .966, "#bf{GEANT4}");
   //text->DrawLatexNDC(.62, .966, "Final electron beam profile");
   //cElectronPosition3D->SaveAs(string(path+"/eps/electronPosition3D.eps").c_str());
+  cElectronPosition->SetFillColorAlpha(1, 0.01);  
   cElectronPosition->SaveAs(string(path+"/eps/electronPosition.eps").c_str());
   cElectronPosition->SaveAs(string(path+"/png/electronPosition.png").c_str());
+  cElectronPosition->SaveAs(string(path+"/svg/electronPosition.svg").c_str());
+  cElectronPosition->SaveAs(string(path+"/tex/electronPosition.tex").c_str());
 
   TCanvas *cElossInQuartz = new TCanvas();
   cElossInQuartz->cd();
+  cElossInQuartz->SetFillColorAlpha(1, 0.01);
   hElossInQuartz->SetXTitle("Energy loss [MeV]");
   hElossInQuartz->Draw();
   text->DrawLatexNDC(.15, .966, "#bf{GEANT4}");
   text->DrawLatexNDC(.57, .966, "Electron in 5 mm quartz window");
   cElossInQuartz->SaveAs(string(path+"/eps/elossInQuartz.eps").c_str());
   cElossInQuartz->SaveAs(string(path+"/png/elossInQuartz.png").c_str());
+  cElossInQuartz->SaveAs(string(path+"/svg/elossInQuartz.svg").c_str());
+  cElossInQuartz->SaveAs(string(path+"/tex/elossInQuartz.tex").c_str());
 
   TCanvas *cCherenkovCount = new TCanvas();
   cCherenkovCount->cd();
+  cCherenkovCount->SetFillColorAlpha(1, 0.01);
   hCherenkovCount->SetXTitle("Number of Cherenkov photons");
   hCherenkovCount->Draw();
   text->DrawLatexNDC(.15, .966, "#bf{GEANT4}");
   text->DrawLatexNDC(.53, .966, "Electron in 20 mm sapphire radiator");
   cCherenkovCount->SaveAs(string(path+"/eps/cherenkovCount.eps").c_str());
   cCherenkovCount->SaveAs(string(path+"/png/cherenkovCount.png").c_str());
+  cCherenkovCount->SaveAs(string(path+"/svg/cherenkovCount.svg").c_str());
+  cCherenkovCount->SaveAs(string(path+"/tex/cherenkovCount.tex").c_str());
 
   TCanvas *cCherenkovTimes = new TCanvas();
   cCherenkovTimes->cd();
+  cCherenkovTimes->SetFillColorAlpha(1, 0.01);
   hCherenkovTimes->SetXTitle("Cherenkov photon arrival time [ns]");
   hCherenkovTimes->Draw();
   text->DrawLatexNDC(.15, .966, "#bf{GEANT4}");
   text->DrawLatexNDC(.53, .966, "Electron in 20 mm sapphire radiator");
   cCherenkovTimes->SaveAs(string(path+"/eps/cherenkovTimes.eps").c_str());
   cCherenkovTimes->SaveAs(string(path+"/png/cherenkovTimes.png").c_str());
+  cCherenkovTimes->SaveAs(string(path+"/svg/cherenkovTimes.svg").c_str());
+  cCherenkovTimes->SaveAs(string(path+"/tex/cherenkovTimes.tex").c_str());
 }
