@@ -32,7 +32,7 @@ def save_job(job_index):
 def main(argv):
     with open('job_run.sh', 'w') as run_file:
         #run_file.write('#!/bin/sh/\n\n')
-        for job_index in range(1, 10):
+        for job_index in range(1, 101):
             dirname_job = save_job(job_index)
             run_file.write('condor_submit ' + dirname_job + 'job.job -name ettore\n')
 

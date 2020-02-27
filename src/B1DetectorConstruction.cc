@@ -177,7 +177,7 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   // Cherenkov radiator
   //
   G4double cherenkovRadiatorLength = 3.*cm;
-  G4double cherenkovRadiatorThickness = 20.*mm;
+  G4double cherenkovRadiatorThickness = 3.*mm;
   G4double cherenkovRadiatorZ = 8.*cm;
 
   G4Box *cherenkovSolid = new G4Box("CherenkovBox", cherenkovRadiatorLength, cherenkovRadiatorLength, cherenkovRadiatorThickness);
