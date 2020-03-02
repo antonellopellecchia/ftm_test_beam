@@ -69,6 +69,7 @@ public:
   void AddQuartzWindow1Edep(G4double edep);
   void AddCherenkovEndpointVector(std::vector<G4ThreeVector> cherenkovEndpoints);
   void AddCherenkovArrivalTime(G4double arrivalTime);
+  void AddCherenkovEnergy(G4double energy);
   void AddCherenkovCount(G4int cherenkovCount);
 
   void FillRunNtuples(G4double energyLossInScintillator,
@@ -99,6 +100,7 @@ private:
   G4int fCherenkovCount;
   //vector<G4int> fCherenkovArrivalTimes;
   TH1F *fCherenkovArrivalTimes;
+  TH1F *fCherenkovEnergySpectrum;
   
   vector<G4double> fEdepVector;
   map<G4String, vector<G4double>> fEdepVectorByProcess;

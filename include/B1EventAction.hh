@@ -88,6 +88,10 @@ public:
     fRunAction->AddCherenkovArrivalTime(arrivalTime);
   }
 
+  void AddCherenkovEnergy(G4double energy) {
+    fRunAction->AddCherenkovEnergy(energy);
+  }
+
   void AddCherenkovCount(G4int stepCherenkovCount) {
     fCherenkovCount += stepCherenkovCount;
   }

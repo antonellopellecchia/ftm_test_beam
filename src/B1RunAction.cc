@@ -109,6 +109,7 @@ B1RunAction::B1RunAction(G4bool headless, string outFilePath)
   runFile = new TFile(outFilePath.c_str(), "RECREATE", "File containing simulation output ntuples");
 
   fCherenkovArrivalTimes = new TH1F("hCherenkovTimes", "", 50000, 0., 2.*ns);
+  fCherenkovEnergySpectrum = new TH1F("hCherenkovEnergies", "", 500, 0.*eV, 11.*eV);
 
   runTree = new TTree("runTree", "Tree with all run data");
   runTree->Branch("energyLossInScintillator", &fEnergyLossInScintillator, "loss/D");
@@ -299,8 +300,11 @@ void B1RunAction::AddCherenkovEndpointVector (std::vector<G4ThreeVector> cherenk
 }
 
 void B1RunAction::AddCherenkovArrivalTime(G4double arrivalTime) {
-  //fCherenkovArrivalTimes.push_back(arrivalTime);
   fCherenkovArrivalTimes->Fill(arrivalTime);
+}
+
+void B1RunAction::AddCherenkovEnergy(G4double energy) {
+  fCherenkovEnergySpectrum->Fill(energy);
 }
 
 void B1RunAction::AddCherenkovCount(G4int cherenkovCount) {

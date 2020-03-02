@@ -88,9 +88,9 @@ TStyle *setStyle() {
   m_garfieldStyle->SetFuncWidth(lw);
   m_garfieldStyle->SetGridWidth(lw);
 
-  m_garfieldStyle->SetFillColorAlpha(1, 0.01);
-  m_garfieldStyle->SetFillStyle(4000);
-  m_garfieldStyle->SetFrameFillStyle(4000);
+  //m_garfieldStyle->SetFillColorAlpha(1, 0.01);
+  //m_garfieldStyle->SetFillStyle(4000);
+  //m_garfieldStyle->SetFrameFillStyle(4000);
   
   m_garfieldStyle->cd();
   

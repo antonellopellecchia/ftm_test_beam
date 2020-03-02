@@ -90,9 +90,10 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
       const G4VProcess *process = endPoint->GetProcessDefinedStep();
       G4int nbsec = step->GetNumberOfSecondariesInCurrentStep();
       //G4cout << "Scintillator, process: " << process->GetProcessName() << ", ";
-      //G4cout << "particle: " << step->GetTrack()->GetParticleDefinition()->GetParticleName() << ", ";
       //G4cout << "deposit (MeV): " << edepStep << ", ";
-      //G4cout << "n. secondaries: " << nbsec << G4endl;
+      //G4cout << " from " << step->GetPreStepPoint()->GetPhysicalVolume()->GetName();
+      //G4cout << " to " << endPoint->GetPhysicalVolume()->GetName();      
+      //G4cout << ", n. secondaries: " << nbsec << G4endl;
 
       fEventAction->AddEdep(edepStep);
       fEventAction->AddEdepByProcess(edepStep, process->GetProcessName());
@@ -153,7 +154,14 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
       for (G4int itr=0; itr<nbsec; itr++) {
 	const G4Track *trk = (*secondaries)[itr];
 	G4String secondaryCreatorProcessName = trk->GetCreatorProcess()->GetProcessName();
-	if (std::string("Cerenkov") == trk->GetCreatorProcess()->GetProcessName().c_str()) cherenkovPhotons++;
+	if (std::string("Cerenkov") == trk->GetCreatorProcess()->GetProcessName().c_str()) {
+	  /*G4ThreeVector cherenkovPhotonMomentum = trk->GetMomentum();
+	    fEventAction->AddCherenkovEnergy(sqrt(cherenkovPhotonMomentum.getX()*cherenkovPhotonMomentum.getX()+
+						 cherenkovPhotonMomentum.getY()*cherenkovPhotonMomentum.getY()+
+						 cherenkovPhotonMomentum.getZ()*cherenkovPhotonMomentum.getZ()));*/
+	  fEventAction->AddCherenkovEnergy(trk->GetTotalEnergy());
+	  cherenkovPhotons++;
+	}
       }
       fEventAction->AddCherenkovCount(cherenkovPhotons);
     }
